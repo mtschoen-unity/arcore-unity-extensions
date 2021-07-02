@@ -72,8 +72,8 @@ namespace Google.XR.ARCoreExtensions.Internal
         public static void UploadInstance()
         {
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-            preloadedAssets.RemoveAll(x => x.GetType() == typeof(RuntimeConfig));
-
+            preloadedAssets.RemoveAll(x => x == null || x.GetType() == typeof(RuntimeConfig));
+            
             if (Instance == null)
             {
                 Debug.Log("Cleared ARCore Extensions RuntimeConfig in Preloaded Assets.");
