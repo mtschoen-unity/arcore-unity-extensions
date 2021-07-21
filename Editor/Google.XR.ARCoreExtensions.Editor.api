@@ -1,0 +1,1080 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+namespace Google.XR.ARCoreExtensions.Editor.Internal
+{
+    public enum AndroidAuthenticationStrategy
+    {
+        public const Google.XR.ARCoreExtensions.Editor.Internal.AndroidAuthenticationStrategy ApiKey = 2;
+        public const Google.XR.ARCoreExtensions.Editor.Internal.AndroidAuthenticationStrategy Keyless = 1;
+        public const Google.XR.ARCoreExtensions.Editor.Internal.AndroidAuthenticationStrategy None = 0;
+        public int value__;
+    }
+
+    public static class AndroidDependenciesHelper
+    {
+        public static void DoPlayServicesResolve();
+        public static string GetJdkPath();
+        public static void SetAndroidPluginEnabled(bool enabledDependencies, string dependenciesManifestGuid);
+        public static void UpdateAndroidDependencies(bool enabledDependencies, string dependenciesTemplateGuid);
+    }
+
+    public class AndroidKeylessPreprocessBuild : UnityEditor.Build.IOrderedCallback, UnityEditor.Build.IPreprocessBuildWithReport
+    {
+        public virtual int callbackOrder { get; }
+        public AndroidKeylessPreprocessBuild() {}
+        [UnityEditor.Callbacks.PostProcessBuild(1)] public static void OnPostprocessBuild(UnityEditor.BuildTarget target, string pathToBuiltProject);
+        public virtual void OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport report);
+        public static void PreprocessAndroidBuild(bool enabledKeyless);
+    }
+
+    public class AndroidManifestMerger
+    {
+        public AndroidManifestMerger() {}
+        public static System.Xml.Linq.XElement MergeXElement(System.Xml.Linq.XElement element1, System.Xml.Linq.XElement element2);
+        public static System.Xml.Linq.XDocument TransferToXDocument(string snippet);
+    }
+
+    public class AndroidSupportPreprocessBuild : UnityEditor.Build.IOrderedCallback, UnityEditor.Build.IPreprocessBuildWithReport
+    {
+        public virtual int callbackOrder { get; }
+        public AndroidSupportPreprocessBuild() {}
+        public virtual void OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport report);
+    }
+
+    [UnityEditor.InitializeOnLoad] public class ARCoreAnalytics
+    {
+        public bool EnableAnalytics;
+        public static Google.XR.ARCoreExtensions.Editor.Internal.ARCoreAnalytics Instance { get; }
+        public ARCoreAnalytics() {}
+        public void Load();
+        public void Save();
+        public void SendAnalytics(string analyticsHost, Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest logRequest, bool verbose);
+    }
+
+    public class ARCoreExtensionsProjectSettings
+    {
+        [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetAndroidStrategyHelpInfo")] public Google.XR.ARCoreExtensions.Editor.Internal.AndroidAuthenticationStrategy AndroidAuthenticationStrategySetting;
+        public string AndroidCloudServicesApiKey;
+        [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetIosStrategyHelpInfo")] public Google.XR.ARCoreExtensions.Editor.Internal.IOSAuthenticationStrategy IOSAuthenticationStrategySetting;
+        public string IOSCloudServicesApiKey;
+        public bool IsIOSSupportEnabled;
+        [UnityEngine.HideInInspector] public string Version;
+        public static Google.XR.ARCoreExtensions.Editor.Internal.ARCoreExtensionsProjectSettings Instance { get; }
+        public ARCoreExtensionsProjectSettings() {}
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetAndroidStrategyHelpInfo();
+        public System.Array GetAndroidStrategyRange();
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetIosStrategyHelpInfo();
+        public System.Array GetIosStrategyRange();
+        public bool IsAndroidApiKeyFieldDisplayed();
+        public bool IsIosApiKeyFieldDisplayed();
+        public bool IsIosStrategyDisplayed();
+        public void Load();
+        public void Save();
+    }
+
+    public class ARCoreExtensionsProjectSettingsGUI
+    {
+        public ARCoreExtensionsProjectSettingsGUI() {}
+        public static void DrawGUI(object targetObject);
+        public static string[] GetEnumNames<T>(System.Array availbleEnums);
+        public static void OnGUI(bool renderForStandaloneWindow);
+    }
+
+    public class AssetHelper
+    {
+        public AssetHelper() {}
+        public static UnityEditor.PluginImporter GetPluginImporterByName(string name);
+    }
+
+    public class CloudAnchorPreprocessBuild : UnityEditor.Build.IOrderedCallback, UnityEditor.Build.IPreprocessBuildWithReport
+    {
+        public virtual int callbackOrder { get; }
+        public CloudAnchorPreprocessBuild() {}
+        public virtual void OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport report);
+        public void PreprocessAndroidBuild();
+        public void PreprocessIOSBuild();
+    }
+
+    public class CustomizedManifestInjection : UnityEditor.Android.IPostGenerateGradleAndroidProject, UnityEditor.Build.IOrderedCallback
+    {
+        public virtual int callbackOrder { get; }
+        public CustomizedManifestInjection() {}
+        public static System.Xml.Linq.XDocument GenerateCustomizedAndroidManifest(System.Xml.Linq.XDocument manifestDoc, Google.XR.ARCoreExtensions.Editor.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual void OnPostGenerateGradleAndroidProject(string path);
+    }
+
+    public class DependentModulesManager : UnityEditor.Build.IOrderedCallback, UnityEditor.Build.IPreprocessBuildWithReport
+    {
+        public virtual int callbackOrder { get; }
+        public DependentModulesManager() {}
+        public static System.Collections.Generic.List<Google.XR.ARCoreExtensions.Editor.Internal.IDependentModule> GetModules();
+        public virtual void OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport report);
+    }
+
+    [UnityEditor.CustomPropertyDrawer(typeof(Google.XR.ARCoreExtensions.Internal.DynamicHelpAttribute))] public class DynamicHelpAttributeDrawer : Google.XR.ARCoreExtensions.Editor.Internal.HelpAttributeDrawer
+    {
+        public DynamicHelpAttributeDrawer() {}
+        protected virtual Google.XR.ARCoreExtensions.Internal.HelpAttribute GetHelpAttribute(UnityEditor.SerializedProperty property);
+    }
+
+    [UnityEditor.CustomPropertyDrawer(typeof(Google.XR.ARCoreExtensions.Internal.EnumFlagsAttribute))] public class EnumFlagsAttributeDrawer : UnityEditor.PropertyDrawer
+    {
+        public EnumFlagsAttributeDrawer() {}
+        public virtual void OnGUI(UnityEngine.Rect position, UnityEditor.SerializedProperty property, UnityEngine.GUIContent label);
+    }
+
+    [UnityEditor.CustomPropertyDrawer(typeof(Google.XR.ARCoreExtensions.Internal.HelpAttribute))] public class HelpAttributeDrawer : UnityEditor.PropertyDrawer
+    {
+        public HelpAttributeDrawer() {}
+        protected virtual Google.XR.ARCoreExtensions.Internal.HelpAttribute GetHelpAttribute(UnityEditor.SerializedProperty property);
+        public virtual float GetPropertyHeight(UnityEditor.SerializedProperty property, UnityEngine.GUIContent label);
+        public virtual void OnGUI(UnityEngine.Rect position, UnityEditor.SerializedProperty property, UnityEngine.GUIContent label);
+    }
+
+    public interface IDependentModule
+    {
+        public abstract string GetAndroidManifestSnippet(Google.XR.ARCoreExtensions.Editor.Internal.ARCoreExtensionsProjectSettings settings);
+        public abstract bool IsCompatibleWithSessionConfig(Google.XR.ARCoreExtensions.Editor.Internal.ARCoreExtensionsProjectSettings settings, Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig);
+        public abstract bool IsEnabled(Google.XR.ARCoreExtensions.Editor.Internal.ARCoreExtensionsProjectSettings settings);
+    }
+
+    public enum IOSAuthenticationStrategy
+    {
+        public const Google.XR.ARCoreExtensions.Editor.Internal.IOSAuthenticationStrategy ApiKey = 2;
+        public const Google.XR.ARCoreExtensions.Editor.Internal.IOSAuthenticationStrategy AuthenticationToken = 1;
+        public const Google.XR.ARCoreExtensions.Editor.Internal.IOSAuthenticationStrategy None = 0;
+        public int value__;
+    }
+
+    public static class IOSSupportHelper
+    {
+        public static void SetARCoreIOSSupportEnabled(bool arcoreIOSEnabled);
+        public static void UpdateIOSPodDependencies(bool arcoreIOSEnabled, string dependencyFileName);
+    }
+
+    public class LogRequestUtils
+    {
+        public LogRequestUtils() {}
+        public static Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest BuildLogRequest();
+    }
+
+    public static class ShellHelper
+    {
+        public static void RunCommand(string fileName, string arguments, out string output, out string error);
+    }
+}
+
+namespace Google.XR.ARCoreExtensions.Editor.Internal.Proto
+{
+    public static class ArcoreClearcutReflection
+    {
+        public static Google.Protobuf.Reflection.FileDescriptor Descriptor { get; }
+    }
+
+    public sealed class ArCoreSdkLog : Google.Protobuf.IDeepCloneable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog>, Google.Protobuf.IMessage, Google.Protobuf.IMessage<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog>, System.IEquatable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog>
+    {
+        public const int ArcoreSdkVersionFieldNumber = 2;
+        public const int OsVersionFieldNumber = 3;
+        public const int SdkInstanceIdFieldNumber = 1;
+        public const int SdkSessionIdFieldNumber = 5;
+        public const int SdkTypeFieldNumber = 6;
+        public const int UnityFieldNumber = 4;
+        [System.Diagnostics.DebuggerNonUserCode] public string ArcoreSdkVersion { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.Reflection.MessageDescriptor Descriptor { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.EngineOneofCase EngineCase { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public string OsVersion { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.MessageParser<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog> Parser { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public string SdkInstanceId { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public string SdkSessionId { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.SDKType SdkType { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine Unity { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public ArCoreSdkLog() {}
+        [System.Diagnostics.DebuggerNonUserCode] public ArCoreSdkLog(Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog other) {}
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int CalculateSize();
+        [System.Diagnostics.DebuggerNonUserCode] public void ClearEngine();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog Clone();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(object other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int GetHashCode();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.Protobuf.CodedInputStream input);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual string ToString();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void WriteTo(Google.Protobuf.CodedOutputStream output);
+        public enum EngineOneofCase
+        {
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.EngineOneofCase None = 0;
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.EngineOneofCase Unity = 4;
+            public int value__;
+        }
+        [System.Diagnostics.DebuggerNonUserCode] public static class Types
+        {
+            public enum SDKType
+            {
+                [Google.Protobuf.Reflection.OriginalName(@"ARCORE_SDK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.SDKType ArcoreSdk = 1;
+                [Google.Protobuf.Reflection.OriginalName(@"ARFOUNDATION_EXTENSIONS_SDK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.SDKType ArfoundationExtensionsSdk = 2;
+                [Google.Protobuf.Reflection.OriginalName(@"UNKNOWN_SDK_TYPE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.SDKType UnknownSdkType = 0;
+                public int value__;
+            }
+            public sealed class UnityEngine : Google.Protobuf.IDeepCloneable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine>, Google.Protobuf.IMessage, Google.Protobuf.IMessage<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine>, System.IEquatable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine>
+            {
+                public const int EditionTypeFieldNumber = 2;
+                public const int VersionFieldNumber = 1;
+                [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.Reflection.MessageDescriptor Descriptor { get; }
+                [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine.Types.EditionType EditionType { get; set; }
+                [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.MessageParser<Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine> Parser { get; }
+                [System.Diagnostics.DebuggerNonUserCode] public string Version { get; set; }
+                [System.Diagnostics.DebuggerNonUserCode] public UnityEngine() {}
+                [System.Diagnostics.DebuggerNonUserCode] public UnityEngine(Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine other) {}
+                [System.Diagnostics.DebuggerNonUserCode] public virtual int CalculateSize();
+                [System.Diagnostics.DebuggerNonUserCode] public virtual Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine Clone();
+                [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine other);
+                [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(object other);
+                [System.Diagnostics.DebuggerNonUserCode] public virtual int GetHashCode();
+                [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.Protobuf.CodedInputStream input);
+                [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine other);
+                [System.Diagnostics.DebuggerNonUserCode] public virtual string ToString();
+                [System.Diagnostics.DebuggerNonUserCode] public virtual void WriteTo(Google.Protobuf.CodedOutputStream output);
+                [System.Diagnostics.DebuggerNonUserCode] public static class Types
+                {
+                    public enum EditionType
+                    {
+                        [Google.Protobuf.Reflection.OriginalName(@"PERSONAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine.Types.EditionType Personal = 1;
+                        [Google.Protobuf.Reflection.OriginalName(@"PROFESSIONAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine.Types.EditionType Professional = 2;
+                        [Google.Protobuf.Reflection.OriginalName(@"UNKNOWN_EDITION_TYPE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.ArCoreSdkLog.Types.UnityEngine.Types.EditionType UnknownEditionType = 0;
+                        public int value__;
+                    }
+                }
+            }
+        }
+    }
+
+    public static class ArcoreSdkLogReflection
+    {
+        public static Google.Protobuf.Reflection.FileDescriptor Descriptor { get; }
+    }
+
+    public sealed class LogEvent : Google.Protobuf.IDeepCloneable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent>, Google.Protobuf.IMessage, Google.Protobuf.IMessage<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent>, System.IEquatable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent>
+    {
+        public const int EventTimeMsFieldNumber = 1;
+        public const int EventUptimeMsFieldNumber = 17;
+        public const int SourceExtensionFieldNumber = 6;
+        public const int TimezoneOffsetSecondsValFieldNumber = 15;
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.Reflection.MessageDescriptor Descriptor { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public long EventTimeMs { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public long EventUptimeMs { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.MessageParser<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent> Parser { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.Protobuf.ByteString SourceExtension { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent.TimezoneOffsetSecondsOneofCase TimezoneOffsetSecondsCase { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public long TimezoneOffsetSecondsVal { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public LogEvent() {}
+        [System.Diagnostics.DebuggerNonUserCode] public LogEvent(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent other) {}
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int CalculateSize();
+        [System.Diagnostics.DebuggerNonUserCode] public void ClearTimezoneOffsetSeconds();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent Clone();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(object other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int GetHashCode();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.Protobuf.CodedInputStream input);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual string ToString();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void WriteTo(Google.Protobuf.CodedOutputStream output);
+        public enum TimezoneOffsetSecondsOneofCase
+        {
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent.TimezoneOffsetSecondsOneofCase None = 0;
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent.TimezoneOffsetSecondsOneofCase TimezoneOffsetSecondsVal = 15;
+            public int value__;
+        }
+    }
+
+    public sealed class LogRequest : Google.Protobuf.IDeepCloneable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest>, Google.Protobuf.IMessage, Google.Protobuf.IMessage<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest>, System.IEquatable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest>
+    {
+        public const int LogEventFieldNumber = 3;
+        public const int LogSourceValFieldNumber = 2;
+        public const int RequestTimeMsFieldNumber = 4;
+        public const int RequestUptimeMsFieldNumber = 8;
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.Reflection.MessageDescriptor Descriptor { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.Protobuf.Collections.RepeatedField<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogEvent> LogEvent { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.LogSourceOneofCase LogSourceCase { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LogSourceVal { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.MessageParser<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest> Parser { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public long RequestTimeMs { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public long RequestUptimeMs { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public LogRequest() {}
+        [System.Diagnostics.DebuggerNonUserCode] public LogRequest(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest other) {}
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int CalculateSize();
+        [System.Diagnostics.DebuggerNonUserCode] public void ClearLogSource();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest Clone();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(object other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int GetHashCode();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.Protobuf.CodedInputStream input);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual string ToString();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void WriteTo(Google.Protobuf.CodedOutputStream output);
+        public enum LogSourceOneofCase
+        {
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.LogSourceOneofCase LogSourceVal = 2;
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.LogSourceOneofCase None = 0;
+            public int value__;
+        }
+        [System.Diagnostics.DebuggerNonUserCode] public static class Types
+        {
+            public enum LogSource
+            {
+                [Google.Protobuf.Reflection.OriginalName(@"A11YLOGGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource A11Ylogger = 95;
+                [Google.Protobuf.Reflection.OriginalName(@"ACTIONS_ON_GOOGLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ActionsOnGoogle = 560;
+                [Google.Protobuf.Reflection.OriginalName(@"ACTIVITY_RECOGNITION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ActivityRecognition = 513;
+                [Google.Protobuf.Reflection.OriginalName(@"ADSENSE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdsenseAndroidPrimes = 439;
+                [Google.Protobuf.Reflection.OriginalName(@"ADSHIELD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Adshield = 106;
+                [Google.Protobuf.Reflection.OriginalName(@"ADS_INTEGRITY_OPS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdsIntegrityOps = 366;
+                [Google.Protobuf.Reflection.OriginalName(@"ADWORDS_EXPRESS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdwordsExpressAndroidPrimes = 343;
+                [Google.Protobuf.Reflection.OriginalName(@"ADWORDS_FLUTTER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdwordsFlutterAndroidPrimes = 626;
+                [Google.Protobuf.Reflection.OriginalName(@"ADWORDS_FLUTTER_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdwordsFlutterIosPrimes = 627;
+                [Google.Protobuf.Reflection.OriginalName(@"ADWORDS_MOBILE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdwordsMobile = 133;
+                [Google.Protobuf.Reflection.OriginalName(@"ADWORDS_MOBILE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdwordsMobileAndroidPrimes = 224;
+                [Google.Protobuf.Reflection.OriginalName(@"ADWORDS_MOBILE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AdwordsMobileIosPrimes = 546;
+                [Google.Protobuf.Reflection.OriginalName(@"ALBERT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Albert = 488;
+                [Google.Protobuf.Reflection.OriginalName(@"ANALYTICS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AnalyticsAndroidPrimes = 235;
+                [Google.Protobuf.Reflection.OriginalName(@"ANALYTICS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AnalyticsIosPrimes = 538;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_AUTH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidAuth = 25;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_BACKUP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidBackup = 84;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_CAMERA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidCamera = 26;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_CONTACTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidContacts = 220;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_CONTACTS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidContactsPrimes = 350;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_CREATIVE_PREVIEW_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidCreativePreviewPrimes = 448;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_DIALER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidDialer = 176;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_GMAIL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidGmail = 135;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_GROWTH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidGrowth = 498;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_GSA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidGsa = 20;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_GSA_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidGsaCounters = 161;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_GSA_HIGH_PRIORITY_EVENTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidGsaHighPriorityEvents = 175;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_IDE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidIde = 7;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_IME_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidImeAndroidPrimes = 362;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_MESSAGING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidMessaging = 46;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_MESSAGING_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidMessagingPrimes = 285;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_MIGRATE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidMigrate = 320;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_ONBOARD_WEB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidOnboardWeb = 685;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_OTA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidOta = 600;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_SMART_SHARE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidSmartShare = 636;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_SNET_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidSnetGcore = 122;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_SNET_IDLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidSnetIdle = 123;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_SNET_JAR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidSnetJar = 124;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_SPEECH_SERVICES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidSpeechServices = 622;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_STUDIO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidStudio = 302;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_VERIFY_APPS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidVerifyApps = 105;
+                [Google.Protobuf.Reflection.OriginalName(@"ANDROID_WEBVIEW")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AndroidWebview = 552;
+                [Google.Protobuf.Reflection.OriginalName(@"APP_CATALOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppCatalog = 206;
+                [Google.Protobuf.Reflection.OriginalName(@"APPMANAGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Appmanager = 183;
+                [Google.Protobuf.Reflection.OriginalName(@"APPS_ASSISTANT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppsAssistant = 646;
+                [Google.Protobuf.Reflection.OriginalName(@"APPS_NOTIFY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppsNotify = 252;
+                [Google.Protobuf.Reflection.OriginalName(@"APPS_SEARCH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppsSearch = 653;
+                [Google.Protobuf.Reflection.OriginalName(@"APPS_TELEPATH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppsTelepath = 442;
+                [Google.Protobuf.Reflection.OriginalName(@"APPS_TELEPATH_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppsTelepathAndroidPrimes = 479;
+                [Google.Protobuf.Reflection.OriginalName(@"APPSTREAMING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Appstreaming = 289;
+                [Google.Protobuf.Reflection.OriginalName(@"APP_USAGE_1P")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AppUsage1P = 11;
+                [Google.Protobuf.Reflection.OriginalName(@"ARCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Arcore = 700;
+                [Google.Protobuf.Reflection.OriginalName(@"ARCORE_SDK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ArcoreSdk = 1034;
+                [Google.Protobuf.Reflection.OriginalName(@"ASSISTANT_CLIENT_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AssistantClientCounters = 681;
+                [Google.Protobuf.Reflection.OriginalName(@"ASSISTANT_HQ_WEB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AssistantHqWeb = 695;
+                [Google.Protobuf.Reflection.OriginalName(@"ASSISTANTKIT_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AssistantkitIos = 537;
+                [Google.Protobuf.Reflection.OriginalName(@"ASSISTANTLITE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Assistantlite = 655;
+                [Google.Protobuf.Reflection.OriginalName(@"ASSISTANTLITE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AssistantliteAndroidPrimes = 656;
+                [Google.Protobuf.Reflection.OriginalName(@"ASSISTANT_SHELL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AssistantShell = 721;
+                [Google.Protobuf.Reflection.OriginalName(@"ATV_REMOTE_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AtvRemotePrimes = 495;
+                [Google.Protobuf.Reflection.OriginalName(@"ATV_REMOTE_SERVICE_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AtvRemoteServicePrimes = 496;
+                [Google.Protobuf.Reflection.OriginalName(@"AUDIT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Audit = 608;
+                [Google.Protobuf.Reflection.OriginalName(@"AUDITOR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Auditor = 173;
+                [Google.Protobuf.Reflection.OriginalName(@"AUTOFILL_WITH_GOOGLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AutofillWithGoogle = 583;
+                [Google.Protobuf.Reflection.OriginalName(@"AWX_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AwxAndroidPrimes = 222;
+                [Google.Protobuf.Reflection.OriginalName(@"AWX_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource AwxIosPrimes = 391;
+                [Google.Protobuf.Reflection.OriginalName(@"BACKDROP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Backdrop = 48;
+                [Google.Protobuf.Reflection.OriginalName(@"BASELINE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BaselineAndroidPrimes = 482;
+                [Google.Protobuf.Reflection.OriginalName(@"BASELINE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BaselineIosPrimes = 575;
+                [Google.Protobuf.Reflection.OriginalName(@"BATCHED_LOG_REQUEST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BatchedLogRequest = 357;
+                [Google.Protobuf.Reflection.OriginalName(@"BATTERY_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BatteryStats = 91;
+                [Google.Protobuf.Reflection.OriginalName(@"BEACON_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BeaconGcore = 301;
+                [Google.Protobuf.Reflection.OriginalName(@"BEACON_GCORE_TEST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BeaconGcoreTest = 410;
+                [Google.Protobuf.Reflection.OriginalName(@"BEACON_TOOLS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BeaconToolsAndroidPrimes = 614;
+                [Google.Protobuf.Reflection.OriginalName(@"BEACON_TOOLS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BeaconToolsIosPrimes = 615;
+                [Google.Protobuf.Reflection.OriginalName(@"BG_IN_OGB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BgInOgb = 407;
+                [Google.Protobuf.Reflection.OriginalName(@"BIGTOP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Bigtop = 191;
+                [Google.Protobuf.Reflection.OriginalName(@"BIRDSONG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Birdsong = 577;
+                [Google.Protobuf.Reflection.OriginalName(@"BISTO_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BistoAndroidPrimes = 491;
+                [Google.Protobuf.Reflection.OriginalName(@"BLOGGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Blogger = 408;
+                [Google.Protobuf.Reflection.OriginalName(@"BLUETOOTH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Bluetooth = 208;
+                [Google.Protobuf.Reflection.OriginalName(@"BOND_ONEGOOGLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BondOnegoogle = 78;
+                [Google.Protobuf.Reflection.OriginalName(@"BOOKS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Books = 2;
+                [Google.Protobuf.Reflection.OriginalName(@"BOOKS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BooksAndroidPrimes = 397;
+                [Google.Protobuf.Reflection.OriginalName(@"BOOKS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BooksIosPrimes = 393;
+                [Google.Protobuf.Reflection.OriginalName(@"BOOND_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BoondAndroidPrimes = 356;
+                [Google.Protobuf.Reflection.OriginalName(@"BOQ_WEB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BoqWeb = 241;
+                [Google.Protobuf.Reflection.OriginalName(@"BRELLA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Brella = 497;
+                [Google.Protobuf.Reflection.OriginalName(@"BUGLE_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource BugleCounters = 323;
+                [Google.Protobuf.Reflection.OriginalName(@"CALCULATOR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalculatorAndroidPrimes = 545;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Calendar = 111;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalendarAndroidPrimes = 151;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR_ANDROID_SYSTEM_HEALTH", PreferredAlias = false)] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalendarAndroidSystemHealth = 151;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalendarClient = 335;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalendarIos = 607;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR_IOS_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalendarIosCounters = 510;
+                [Google.Protobuf.Reflection.OriginalName(@"CALENDAR_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CalendarIosPrimes = 353;
+                [Google.Protobuf.Reflection.OriginalName(@"CAMERA_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CameraAndroidPrimes = 551;
+                [Google.Protobuf.Reflection.OriginalName(@"CAMERAKIT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Camerakit = 684;
+                [Google.Protobuf.Reflection.OriginalName(@"CAR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Car = 53;
+                [Google.Protobuf.Reflection.OriginalName(@"CARRIER_SERVICES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CarrierServices = 451;
+                [Google.Protobuf.Reflection.OriginalName(@"CARRIER_SERVICES_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CarrierServicesAndroidPrimes = 457;
+                [Google.Protobuf.Reflection.OriginalName(@"CARRIER_SETTINGS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CarrierSettings = 634;
+                [Google.Protobuf.Reflection.OriginalName(@"CARRIER_SETUP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CarrierSetup = 720;
+                [Google.Protobuf.Reflection.OriginalName(@"CAST_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CastIosPrimes = 344;
+                [Google.Protobuf.Reflection.OriginalName(@"CAST_SENDER_SDK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CastSenderSdk = 67;
+                [Google.Protobuf.Reflection.OriginalName(@"CHAUFFEUR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Chauffeur = 412;
+                [Google.Protobuf.Reflection.OriginalName(@"CHAUFFEUR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChauffeurAndroidPrimes = 385;
+                [Google.Protobuf.Reflection.OriginalName(@"CHAUFFEUR_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChauffeurIosPrimes = 386;
+                [Google.Protobuf.Reflection.OriginalName(@"CHIME")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Chime = 300;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROMECAST_ANDROID_APP_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChromecastAndroidAppPrimes = 288;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROMECAST_APP_LOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChromecastAppLog = 130;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROME_INFRA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChromeInfra = 71;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROMESYNC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Chromesync = 669;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROME_WEB_STORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChromeWebStore = 647;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROMOTING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Chromoting = 519;
+                [Google.Protobuf.Reflection.OriginalName(@"CHROMOTING_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ChromotingCounters = 520;
+                [Google.Protobuf.Reflection.OriginalName(@"CLASSROOM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Classroom = 126;
+                [Google.Protobuf.Reflection.OriginalName(@"CLASSROOM_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClassroomAndroidPrimes = 369;
+                [Google.Protobuf.Reflection.OriginalName(@"CLASSROOM_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClassroomIosPrimes = 359;
+                [Google.Protobuf.Reflection.OriginalName(@"CL_C")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClC = 493;
+                [Google.Protobuf.Reflection.OriginalName(@"CL_DM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClDm = 494;
+                [Google.Protobuf.Reflection.OriginalName(@"CLEARCUT_DEMO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClearcutDemo = 177;
+                [Google.Protobuf.Reflection.OriginalName(@"CLEARCUT_LOG_LOSS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClearcutLogLoss = 576;
+                [Google.Protobuf.Reflection.OriginalName(@"CLEARCUT_PROBER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClearcutProber = 225;
+                [Google.Protobuf.Reflection.OriginalName(@"CLEARCUT_TEST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClearcutTest = 654;
+                [Google.Protobuf.Reflection.OriginalName(@"CLIENT_LOGGING_DEMO", PreferredAlias = false)] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClientLoggingDemo = 327;
+                [Google.Protobuf.Reflection.OriginalName(@"CLIENT_LOGGING_PROD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClientLoggingProd = 327;
+                [Google.Protobuf.Reflection.OriginalName(@"CLINICAL_STUDIES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClinicalStudies = 270;
+                [Google.Protobuf.Reflection.OriginalName(@"CLOUD_CONSOLE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CloudConsoleAndroidPrimes = 452;
+                [Google.Protobuf.Reflection.OriginalName(@"CLOUDDPC_ARC_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClouddpcArcPrimes = 305;
+                [Google.Protobuf.Reflection.OriginalName(@"CLOUDDPC_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ClouddpcPrimes = 304;
+                [Google.Protobuf.Reflection.OriginalName(@"CONCORD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Concord = 509;
+                [Google.Protobuf.Reflection.OriginalName(@"CONNECTIVITY_MONITOR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ConnectivityMonitorAndroidPrimes = 690;
+                [Google.Protobuf.Reflection.OriginalName(@"CONSTELLATION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Constellation = 564;
+                [Google.Protobuf.Reflection.OriginalName(@"CONSUMERIQ_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ConsumeriqPrimes = 260;
+                [Google.Protobuf.Reflection.OriginalName(@"CONTACTS_ASSISTANTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ContactsAssistants = 508;
+                [Google.Protobuf.Reflection.OriginalName(@"CONTEXT_MANAGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ContextManager = 125;
+                [Google.Protobuf.Reflection.OriginalName(@"COPRESENCE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Copresence = 40;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_AIUTO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidAiuto = 415;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_ASSISTANT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidAssistant = 427;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_CAMPUS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidCampus = 476;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_DORY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidDory = 401;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_FOOD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidFood = 284;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_GBUS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidGbus = 429;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_JETSET")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidJetset = 402;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_MOMA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidMoma = 421;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_ANDROID_MOMA_CLEARCUT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpAndroidMomaClearcut = 672;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_IOS_DORY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpIosDory = 433;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_IOS_FOOD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpIosFood = 409;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_IOS_FOOD_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpIosFoodPrimes = 572;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_IOS_LATIOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpIosLatios = 566;
+                [Google.Protobuf.Reflection.OriginalName(@"CORP_IOS_LATIOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CorpIosLatiosPrimes = 540;
+                [Google.Protobuf.Reflection.OriginalName(@"CPANEL_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CpanelAndroidPrimes = 213;
+                [Google.Protobuf.Reflection.OriginalName(@"CPANEL_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CpanelApp = 121;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_ANDROID_GSA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetAndroidGsa = 80;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_ANDROID_PHOTOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetAndroidPhotos = 543;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_ANDROID_YT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetAndroidYt = 196;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_FIREBALL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetFireball = 303;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_GMM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetGmm = 203;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_SOCIAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetSocial = 68;
+                [Google.Protobuf.Reflection.OriginalName(@"CRONET_WESTINGHOUSE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CronetWestinghouse = 668;
+                [Google.Protobuf.Reflection.OriginalName(@"CROSSDEVICENOTIFICATION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Crossdevicenotification = 141;
+                [Google.Protobuf.Reflection.OriginalName(@"CROSSDEVICENOTIFICATION_DEV")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CrossdevicenotificationDev = 142;
+                [Google.Protobuf.Reflection.OriginalName(@"CURATOR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Curator = 312;
+                [Google.Protobuf.Reflection.OriginalName(@"CURATOR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CuratorAndroidPrimes = 318;
+                [Google.Protobuf.Reflection.OriginalName(@"CW")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Cw = 27;
+                [Google.Protobuf.Reflection.OriginalName(@"CW_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CwCounters = 243;
+                [Google.Protobuf.Reflection.OriginalName(@"CW_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CwIosPrimes = 699;
+                [Google.Protobuf.Reflection.OriginalName(@"CW_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource CwPrimes = 242;
+                [Google.Protobuf.Reflection.OriginalName(@"DASHER_ADMINCONSOLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DasherAdminconsole = 503;
+                [Google.Protobuf.Reflection.OriginalName(@"DASHER_USERHUB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DasherUserhub = 349;
+                [Google.Protobuf.Reflection.OriginalName(@"DAYDREAM_HOME")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DaydreamHome = 534;
+                [Google.Protobuf.Reflection.OriginalName(@"DAYDREAM_HOME_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DaydreamHomeAndroidPrimes = 567;
+                [Google.Protobuf.Reflection.OriginalName(@"DAYDREAM_KEYBOARD_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DaydreamKeyboardAndroidPrimes = 570;
+                [Google.Protobuf.Reflection.OriginalName(@"DIALER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DialerAndroidPrimes = 277;
+                [Google.Protobuf.Reflection.OriginalName(@"DISK_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DiskStats = 92;
+                [Google.Protobuf.Reflection.OriginalName(@"DL_FONTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DlFonts = 474;
+                [Google.Protobuf.Reflection.OriginalName(@"DMAGENT_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DmagentAndroidPrimes = 428;
+                [Google.Protobuf.Reflection.OriginalName(@"DMAGENT_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DmagentIos = 524;
+                [Google.Protobuf.Reflection.OriginalName(@"DMAGENT_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DmagentIosPrimes = 525;
+                [Google.Protobuf.Reflection.OriginalName(@"DNA_PROBER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DnaProber = 29;
+                [Google.Protobuf.Reflection.OriginalName(@"DOCS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Docs = 56;
+                [Google.Protobuf.Reflection.OriginalName(@"DOCS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DocsAndroidPrimes = 152;
+                [Google.Protobuf.Reflection.OriginalName(@"DOCS_ANDROID_SYSTEM_HEALTH", PreferredAlias = false)] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DocsAndroidSystemHealth = 152;
+                [Google.Protobuf.Reflection.OriginalName(@"DOCS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DocsIosPrimes = 308;
+                [Google.Protobuf.Reflection.OriginalName(@"DOCS_OFFLINE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DocsOffline = 306;
+                [Google.Protobuf.Reflection.OriginalName(@"DPANEL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Dpanel = 438;
+                [Google.Protobuf.Reflection.OriginalName(@"DRAPER_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DraperIosPrimes = 347;
+                [Google.Protobuf.Reflection.OriginalName(@"DRIVE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Drive = 55;
+                [Google.Protobuf.Reflection.OriginalName(@"DRIVE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DriveAndroidPrimes = 166;
+                [Google.Protobuf.Reflection.OriginalName(@"DRIVE_FS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DriveFs = 280;
+                [Google.Protobuf.Reflection.OriginalName(@"DRIVE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DriveIosPrimes = 588;
+                [Google.Protobuf.Reflection.OriginalName(@"DRIVE_VIEWER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DriveViewer = 189;
+                [Google.Protobuf.Reflection.OriginalName(@"DROIDGUARD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Droidguard = 432;
+                [Google.Protobuf.Reflection.OriginalName(@"DROP_BOX")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DropBox = 131;
+                [Google.Protobuf.Reflection.OriginalName(@"DUO_CRONET")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DuoCronet = 396;
+                [Google.Protobuf.Reflection.OriginalName(@"DYNAMITE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Dynamite = 283;
+                [Google.Protobuf.Reflection.OriginalName(@"DYNAMITE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DynamiteAndroidPrimes = 398;
+                [Google.Protobuf.Reflection.OriginalName(@"DYNAMITE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource DynamiteIosPrimes = 399;
+                [Google.Protobuf.Reflection.OriginalName(@"EARTH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Earth = 334;
+                [Google.Protobuf.Reflection.OriginalName(@"EARTH_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EarthAndroidPrimes = 414;
+                [Google.Protobuf.Reflection.OriginalName(@"EARTH_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EarthCounters = 405;
+                [Google.Protobuf.Reflection.OriginalName(@"EARTH_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EarthIosPrimes = 617;
+                [Google.Protobuf.Reflection.OriginalName(@"EASEL_SERVICE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EaselServiceAndroidPrimes = 609;
+                [Google.Protobuf.Reflection.OriginalName(@"EDGE_PCAP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EdgePcap = 612;
+                [Google.Protobuf.Reflection.OriginalName(@"EDU_STORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EduStore = 15;
+                [Google.Protobuf.Reflection.OriginalName(@"EMERGENCY_ASSIST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EmergencyAssist = 88;
+                [Google.Protobuf.Reflection.OriginalName(@"EMERGENCY_ASSIST_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EmergencyAssistPrimes = 441;
+                [Google.Protobuf.Reflection.OriginalName(@"ENDER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Ender = 112;
+                [Google.Protobuf.Reflection.OriginalName(@"ENTERPRISE_ENROLLMENT_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource EnterpriseEnrollmentCounters = 548;
+                [Google.Protobuf.Reflection.OriginalName(@"EUICC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Euicc = 605;
+                [Google.Protobuf.Reflection.OriginalName(@"EXPEDITIONS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ExpeditionsAndroidPrimes = 677;
+                [Google.Protobuf.Reflection.OriginalName(@"EXPEDITIONS_GUIDE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ExpeditionsGuide = 185;
+                [Google.Protobuf.Reflection.OriginalName(@"EXPEDITIONS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ExpeditionsIosPrimes = 682;
+                [Google.Protobuf.Reflection.OriginalName(@"FACT_CHECK_EXPLORER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FactCheckExplorer = 694;
+                [Google.Protobuf.Reflection.OriginalName(@"FAMILY_COMPASS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FamilyCompass = 113;
+                [Google.Protobuf.Reflection.OriginalName(@"FAMILYLINK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Familylink = 273;
+                [Google.Protobuf.Reflection.OriginalName(@"FAMILYLINK_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FamilylinkAndroidPrimes = 244;
+                [Google.Protobuf.Reflection.OriginalName(@"FAMILYLINK_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FamilylinkCounters = 274;
+                [Google.Protobuf.Reflection.OriginalName(@"FAMILYLINK_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FamilylinkIosPrimes = 291;
+                [Google.Protobuf.Reflection.OriginalName(@"FIDO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Fido = 387;
+                [Google.Protobuf.Reflection.OriginalName(@"FILESGO_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FilesgoAndroidPrimes = 593;
+                [Google.Protobuf.Reflection.OriginalName(@"FINDR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Findr = 45;
+                [Google.Protobuf.Reflection.OriginalName(@"FINGERPRINT_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FingerprintStats = 181;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREBALL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Fireball = 149;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREBALL_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FireballCounters = 257;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREBALL_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FireballIosPrimes = 313;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREBALL_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FireballPrimes = 266;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREBASE_ML_SDK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FirebaseMlSdk = 715;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREPERF")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Fireperf = 462;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREPERF_AUTOPUSH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FireperfAutopush = 461;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREPERF_INTERNAL_HIGH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FireperfInternalHigh = 676;
+                [Google.Protobuf.Reflection.OriginalName(@"FIREPERF_INTERNAL_LOW")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FireperfInternalLow = 675;
+                [Google.Protobuf.Reflection.OriginalName(@"FITNESS_ANDROID")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FitnessAndroid = 169;
+                [Google.Protobuf.Reflection.OriginalName(@"FITNESS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FitnessAndroidPrimes = 271;
+                [Google.Protobuf.Reflection.OriginalName(@"FITNESS_ANDROID_WEAR_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FitnessAndroidWearPrimes = 319;
+                [Google.Protobuf.Reflection.OriginalName(@"FITNESS_GMS_CORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FitnessGmsCore = 170;
+                [Google.Protobuf.Reflection.OriginalName(@"FLYDROID")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Flydroid = 120;
+                [Google.Protobuf.Reflection.OriginalName(@"FLYDROID_ANDROID_PRIMES", PreferredAlias = false)] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FlydroidAndroidPrimes = 259;
+                [Google.Protobuf.Reflection.OriginalName(@"FLYDROID_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FlydroidCounters = 148;
+                [Google.Protobuf.Reflection.OriginalName(@"FOOD_ORDERING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FoodOrdering = 659;
+                [Google.Protobuf.Reflection.OriginalName(@"FREIGHTER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Freighter = 307;
+                [Google.Protobuf.Reflection.OriginalName(@"FREIGHTER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource FreighterAndroidPrimes = 259;
+                [Google.Protobuf.Reflection.OriginalName(@"FUSE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Fuse = 186;
+                [Google.Protobuf.Reflection.OriginalName(@"GAMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Games = 5;
+                [Google.Protobuf.Reflection.OriginalName(@"GARAGE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GarageAndroidPrimes = 338;
+                [Google.Protobuf.Reflection.OriginalName(@"GARAGE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GarageIosPrimes = 339;
+                [Google.Protobuf.Reflection.OriginalName(@"GBOARD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gboard = 199;
+                [Google.Protobuf.Reflection.OriginalName(@"GBOARD_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GboardAndroidPrimes = 561;
+                [Google.Protobuf.Reflection.OriginalName(@"GBOARD_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GboardIosPrimes = 585;
+                [Google.Protobuf.Reflection.OriginalName(@"GCM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gcm = 43;
+                [Google.Protobuf.Reflection.OriginalName(@"GCM_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GcmCounters = 96;
+                [Google.Protobuf.Reflection.OriginalName(@"GCONNECT_TURNOUT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GconnectTurnout = 686;
+                [Google.Protobuf.Reflection.OriginalName(@"GDEAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gdeal = 423;
+                [Google.Protobuf.Reflection.OriginalName(@"GDEAL_QA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GdealQa = 492;
+                [Google.Protobuf.Reflection.OriginalName(@"GEARHEAD_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GearheadAndroidPrimes = 201;
+                [Google.Protobuf.Reflection.OriginalName(@"GEL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gel = 28;
+                [Google.Protobuf.Reflection.OriginalName(@"GFTV_MOBILE_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GftvMobilePrimes = 416;
+                [Google.Protobuf.Reflection.OriginalName(@"GHS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GhsAndroidPrimes = 223;
+                [Google.Protobuf.Reflection.OriginalName(@"GHS_CLIENT_LOGS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GhsClientLogs = 499;
+                [Google.Protobuf.Reflection.OriginalName(@"GHS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GhsIosPrimes = 392;
+                [Google.Protobuf.Reflection.OriginalName(@"GMAIL_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmailAndroidPrimes = 150;
+                [Google.Protobuf.Reflection.OriginalName(@"GMAIL_ANDROID_SYSTEM_HEALTH", PreferredAlias = false)] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmailAndroidSystemHealth = 150;
+                [Google.Protobuf.Reflection.OriginalName(@"GMAIL_DD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmailDd = 697;
+                [Google.Protobuf.Reflection.OriginalName(@"GMAIL_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmailIos = 417;
+                [Google.Protobuf.Reflection.OriginalName(@"GMA_SDK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmaSdk = 446;
+                [Google.Protobuf.Reflection.OriginalName(@"GMA_SDK_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmaSdkCounters = 447;
+                [Google.Protobuf.Reflection.OriginalName(@"GMB_ANDROID")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmbAndroid = 290;
+                [Google.Protobuf.Reflection.OriginalName(@"GMB_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmbAndroidPrimes = 263;
+                [Google.Protobuf.Reflection.OriginalName(@"GMB_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmbIos = 295;
+                [Google.Protobuf.Reflection.OriginalName(@"GMB_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmbIosPrimes = 325;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_BRIIM_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmBriimCounters = 129;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_BRIIM_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmBriimPrimes = 239;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmCounters = 77;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmPrimes = 254;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_UE3")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmUe3 = 110;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_WEARABLE_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmWearableCounters = 521;
+                [Google.Protobuf.Reflection.OriginalName(@"GMM_WEARABLE_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmmWearablePrimes = 472;
+                [Google.Protobuf.Reflection.OriginalName(@"GMS_CORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmsCore = 10;
+                [Google.Protobuf.Reflection.OriginalName(@"GMSCORE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmscoreAndroidPrimes = 193;
+                [Google.Protobuf.Reflection.OriginalName(@"GMSCORE_API_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmscoreApiCounters = 333;
+                [Google.Protobuf.Reflection.OriginalName(@"GMSCORE_BACKEND_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmscoreBackendCounters = 640;
+                [Google.Protobuf.Reflection.OriginalName(@"GMSCORE_NOTIFICATION_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmscoreNotificationCounters = 662;
+                [Google.Protobuf.Reflection.OriginalName(@"GMS_CORE_PEOPLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmsCorePeople = 16;
+                [Google.Protobuf.Reflection.OriginalName(@"GMS_CORE_PEOPLE_AUTOCOMPLETE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmsCorePeopleAutocomplete = 147;
+                [Google.Protobuf.Reflection.OriginalName(@"GMS_CORE_WALLET")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmsCoreWallet = 31;
+                [Google.Protobuf.Reflection.OriginalName(@"GMS_CORE_WALLET_MERCHANT_ERROR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GmsCoreWalletMerchantError = 23;
+                [Google.Protobuf.Reflection.OriginalName(@"GNSS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gnss = 549;
+                [Google.Protobuf.Reflection.OriginalName(@"GNSS_PLATFORM_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GnssPlatformStats = 559;
+                [Google.Protobuf.Reflection.OriginalName(@"GOKART")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gokart = 44;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_ANALYTICS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleAnalytics = 18;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLEASSISTANT_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleassistantAndroidPrimes = 683;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpress = 82;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpressAndroidPrimes = 229;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpressCounters = 671;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS_COURIER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpressCourierAndroidPrimes = 228;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS_DEV")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpressDev = 215;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpressIosPrimes = 374;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_EXPRESS_STOREOMS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleExpressStoreomsAndroidPrimes = 240;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_FIT_WEARABLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleFitWearable = 81;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_HANDWRITING_INPUT_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleHandwritingInputAndroidPrimes = 314;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_KEYBOARD_CONTENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleKeyboardContent = 217;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_KEYBOARD_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleKeyboardCounters = 221;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_MEETS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleMeets = 547;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_NOW_LAUNCHER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleNowLauncher = 247;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_RED_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleRedAndroidPrimes = 505;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLETTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Googletts = 424;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLETTS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GooglettsAndroidPrimes = 557;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_TV")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleTv = 14;
+                [Google.Protobuf.Reflection.OriginalName(@"GOOGLE_WIFI_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GoogleWifiAndroidPrimes = 701;
+                [Google.Protobuf.Reflection.OriginalName(@"GOR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GorAndroidPrimes = 500;
+                [Google.Protobuf.Reflection.OriginalName(@"GOR_CLEARCUT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GorClearcut = 716;
+                [Google.Protobuf.Reflection.OriginalName(@"GPLUS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GplusAndroidPrimes = 140;
+                [Google.Protobuf.Reflection.OriginalName(@"GPLUS_ANDROID_SYSTEM_HEALTH", PreferredAlias = false)] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GplusAndroidSystemHealth = 140;
+                [Google.Protobuf.Reflection.OriginalName(@"GPLUS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GplusIosPrimes = 286;
+                [Google.Protobuf.Reflection.OriginalName(@"GPOST_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GpostAndroidPrimes = 436;
+                [Google.Protobuf.Reflection.OriginalName(@"GPOST_CLIENT_LOGS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GpostClientLogs = 437;
+                [Google.Protobuf.Reflection.OriginalName(@"GPP_UI")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GppUi = 691;
+                [Google.Protobuf.Reflection.OriginalName(@"GPU")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gpu = 144;
+                [Google.Protobuf.Reflection.OriginalName(@"GRAPHICS_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GraphicsStats = 107;
+                [Google.Protobuf.Reflection.OriginalName(@"GREENTEA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Greentea = 582;
+                [Google.Protobuf.Reflection.OriginalName(@"GROWTH_CATALOG_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GrowthCatalogIosPrimes = 621;
+                [Google.Protobuf.Reflection.OriginalName(@"GRPC_INTEROP_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GrpcInteropAndroidPrimes = 665;
+                [Google.Protobuf.Reflection.OriginalName(@"GRPC_INTEROP_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GrpcInteropIosPrimes = 667;
+                [Google.Protobuf.Reflection.OriginalName(@"GSTORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Gstore = 528;
+                [Google.Protobuf.Reflection.OriginalName(@"G_SUITE_COMPANION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GSuiteCompanion = 639;
+                [Google.Protobuf.Reflection.OriginalName(@"GVC_HARVESTER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GvcHarvester = 51;
+                [Google.Protobuf.Reflection.OriginalName(@"GWS_JS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GwsJs = 544;
+                [Google.Protobuf.Reflection.OriginalName(@"GWS_JS_AUTH_EXPERIMENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource GwsJsAuthExperiment = 619;
+                [Google.Protobuf.Reflection.OriginalName(@"HALLWAY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Hallway = 382;
+                [Google.Protobuf.Reflection.OriginalName(@"HANGOUT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Hangout = 39;
+                [Google.Protobuf.Reflection.OriginalName(@"HANGOUT_LOG_REQUEST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HangoutLogRequest = 50;
+                [Google.Protobuf.Reflection.OriginalName(@"HANGOUTS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HangoutsAndroidPrimes = 179;
+                [Google.Protobuf.Reflection.OriginalName(@"HEALTH_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HealthCounters = 595;
+                [Google.Protobuf.Reflection.OriginalName(@"HERREVAD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Herrevad = 13;
+                [Google.Protobuf.Reflection.OriginalName(@"HIRE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HireAndroidPrimes = 637;
+                [Google.Protobuf.Reflection.OriginalName(@"HIRE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HireIosPrimes = 628;
+                [Google.Protobuf.Reflection.OriginalName(@"HUDDLE_ANDROID")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HuddleAndroid = 473;
+                [Google.Protobuf.Reflection.OriginalName(@"HUDDLE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource HuddleAndroidPrimes = 214;
+                [Google.Protobuf.Reflection.OriginalName(@"ICENTRAL_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IcentralAndroidPrimes = 490;
+                [Google.Protobuf.Reflection.OriginalName(@"ICING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Icing = 12;
+                [Google.Protobuf.Reflection.OriginalName(@"ICING_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IcingCounters = 613;
+                [Google.Protobuf.Reflection.OriginalName(@"ICORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Icore = 137;
+                [Google.Protobuf.Reflection.OriginalName(@"IDENTITY_FRONTEND")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IdentityFrontend = 212;
+                [Google.Protobuf.Reflection.OriginalName(@"IDENTITY_FRONTEND_EXTENDED")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IdentityFrontendExtended = 558;
+                [Google.Protobuf.Reflection.OriginalName(@"IMAGERY_VIEWER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ImageryViewer = 342;
+                [Google.Protobuf.Reflection.OriginalName(@"IMAGES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Images = 581;
+                [Google.Protobuf.Reflection.OriginalName(@"IME")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Ime = 59;
+                [Google.Protobuf.Reflection.OriginalName(@"IME_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ImeCounters = 86;
+                [Google.Protobuf.Reflection.OriginalName(@"IMPROV_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ImprovAndroidPrimes = 556;
+                [Google.Protobuf.Reflection.OriginalName(@"IMPROV_APPS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ImprovApps = 272;
+                [Google.Protobuf.Reflection.OriginalName(@"IMPROV_POSTIT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ImprovPostit = 345;
+                [Google.Protobuf.Reflection.OriginalName(@"IMPROV_SHARPIE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ImprovSharpie = 346;
+                [Google.Protobuf.Reflection.OriginalName(@"INBOX_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource InboxAndroidPrimes = 180;
+                [Google.Protobuf.Reflection.OriginalName(@"INBOX_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource InboxIosPrimes = 262;
+                [Google.Protobuf.Reflection.OriginalName(@"INK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Ink = 219;
+                [Google.Protobuf.Reflection.OriginalName(@"INK_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource InkAndroidPrimes = 535;
+                [Google.Protobuf.Reflection.OriginalName(@"INK_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource InkIosPrimes = 536;
+                [Google.Protobuf.Reflection.OriginalName(@"INSTORE_CONSUMER_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource InstoreConsumerPrimes = 207;
+                [Google.Protobuf.Reflection.OriginalName(@"INSTORE_WALLET")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource InstoreWallet = 33;
+                [Google.Protobuf.Reflection.OriginalName(@"IOS_GROWTH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IosGrowth = 251;
+                [Google.Protobuf.Reflection.OriginalName(@"IOS_GSA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IosGsa = 118;
+                [Google.Protobuf.Reflection.OriginalName(@"IOS_SPOTLIGHT_SEARCH_LIBRARY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IosSpotlightSearchLibrary = 234;
+                [Google.Protobuf.Reflection.OriginalName(@"IPA_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IpaGcore = 710;
+                [Google.Protobuf.Reflection.OriginalName(@"IPCONNECTIVITY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Ipconnectivity = 311;
+                [Google.Protobuf.Reflection.OriginalName(@"IPCONNECTIVITY_PLATFORM_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource IpconnectivityPlatformStats = 460;
+                [Google.Protobuf.Reflection.OriginalName(@"JAM_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource JamAndroidPrimes = 159;
+                [Google.Protobuf.Reflection.OriginalName(@"JAM_IMPRESSIONS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource JamImpressions = 162;
+                [Google.Protobuf.Reflection.OriginalName(@"JAM_KIOSK_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource JamKioskAndroidPrimes = 160;
+                [Google.Protobuf.Reflection.OriginalName(@"JAM_KIOSK_IMPRESSIONS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource JamKioskImpressions = 163;
+                [Google.Protobuf.Reflection.OriginalName(@"JUSTSPEAK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Justspeak = 72;
+                [Google.Protobuf.Reflection.OriginalName(@"KATNIP_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KatnipIosPrimes = 395;
+                [Google.Protobuf.Reflection.OriginalName(@"KATNISS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Katniss = 75;
+                [Google.Protobuf.Reflection.OriginalName(@"KEEP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Keep = 128;
+                [Google.Protobuf.Reflection.OriginalName(@"KEEP_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KeepAndroidPrimes = 475;
+                [Google.Protobuf.Reflection.OriginalName(@"KEEP_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KeepIosPrimes = 586;
+                [Google.Protobuf.Reflection.OriginalName(@"KHAZANA_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KhazanaAndroidPrimes = 698;
+                [Google.Protobuf.Reflection.OriginalName(@"KIDS_COMMUNICATOR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KidsCommunicator = 64;
+                [Google.Protobuf.Reflection.OriginalName(@"KIDS_SUPERVISION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KidsSupervision = 623;
+                [Google.Protobuf.Reflection.OriginalName(@"KLOPFKLOPF")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Klopfklopf = 666;
+                [Google.Protobuf.Reflection.OriginalName(@"KONG_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource KongAndroidPrimes = 358;
+                [Google.Protobuf.Reflection.OriginalName(@"LATIN_IME")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LatinIme = 36;
+                [Google.Protobuf.Reflection.OriginalName(@"LAUNCHER_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LauncherStats = 678;
+                [Google.Protobuf.Reflection.OriginalName(@"LAUNCHPAD_TOYS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LaunchpadToys = 102;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_A")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbA = 6;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_AS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbAs = 116;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_C")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbC = 24;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_CA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbCa = 35;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_CB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbCb = 237;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_CFG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbCfg = 117;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbCounters = 533;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_D")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbD = 19;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_DM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbDm = 268;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_IA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbIa = 52;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_P")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbP = 8;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_S")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbS = 9;
+                [Google.Protobuf.Reflection.OriginalName(@"LB_T")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LbT = 21;
+                [Google.Protobuf.Reflection.OriginalName(@"LE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Le = 17;
+                [Google.Protobuf.Reflection.OriginalName(@"LEANBACK_EVENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LeanbackEvent = 134;
+                [Google.Protobuf.Reflection.OriginalName(@"LEANBACK_LAUNCHER_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LeanbackLauncherPrimes = 431;
+                [Google.Protobuf.Reflection.OriginalName(@"LE_ULR_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LeUlrCounters = 109;
+                [Google.Protobuf.Reflection.OriginalName(@"LIBASSISTANT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Libassistant = 603;
+                [Google.Protobuf.Reflection.OriginalName(@"LIFESCIENCE_FRONTENDS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LifescienceFrontends = 376;
+                [Google.Protobuf.Reflection.OriginalName(@"LINKS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Links = 394;
+                [Google.Protobuf.Reflection.OriginalName(@"LINKS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LinksAndroidPrimes = 487;
+                [Google.Protobuf.Reflection.OriginalName(@"LINKS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LinksIosPrimes = 411;
+                [Google.Protobuf.Reflection.OriginalName(@"LITTLEHUG_PEOPLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LittlehugPeople = 597;
+                [Google.Protobuf.Reflection.OriginalName(@"LIVE_CHANNELS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LiveChannelsAndroidPrimes = 328;
+                [Google.Protobuf.Reflection.OriginalName(@"LONGFEI_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LongfeiAndroidPrimes = 661;
+                [Google.Protobuf.Reflection.OriginalName(@"LONGFEI_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource LongfeiCounters = 689;
+                [Google.Protobuf.Reflection.OriginalName(@"MADDEN")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Madden = 218;
+                [Google.Protobuf.Reflection.OriginalName(@"MAGAZINES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Magazines = 4;
+                [Google.Protobuf.Reflection.OriginalName(@"MAGICTETHER_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MagictetherCounters = 378;
+                [Google.Protobuf.Reflection.OriginalName(@"MAPS_API")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MapsApi = 79;
+                [Google.Protobuf.Reflection.OriginalName(@"MAPS_API_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MapsApiCounters = 143;
+                [Google.Protobuf.Reflection.OriginalName(@"MATCHSTICK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Matchstick = 205;
+                [Google.Protobuf.Reflection.OriginalName(@"MATCHSTICK_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MatchstickCounters = 372;
+                [Google.Protobuf.Reflection.OriginalName(@"MECHAHAMSTER_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MechahamsterIosPrimes = 664;
+                [Google.Protobuf.Reflection.OriginalName(@"MEDIA_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MediaStats = 541;
+                [Google.Protobuf.Reflection.OriginalName(@"MEDICAL_SCRIBE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MedicalScribe = 606;
+                [Google.Protobuf.Reflection.OriginalName(@"MEETINGS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MeetingsAndroidPrimes = 363;
+                [Google.Protobuf.Reflection.OriginalName(@"MEETINGS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MeetingsIosPrimes = 364;
+                [Google.Protobuf.Reflection.OriginalName(@"MEETINGS_LOG_REQUEST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MeetingsLogRequest = 422;
+                [Google.Protobuf.Reflection.OriginalName(@"METALOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Metalog = 443;
+                [Google.Protobuf.Reflection.OriginalName(@"METALOG_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MetalogCounters = 103;
+                [Google.Protobuf.Reflection.OriginalName(@"MOB_DOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MobDog = 197;
+                [Google.Protobuf.Reflection.OriginalName(@"MOBDOG_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MobdogAndroidPrimes = 388;
+                [Google.Protobuf.Reflection.OriginalName(@"MOBDOG_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MobdogIosPrimes = 389;
+                [Google.Protobuf.Reflection.OriginalName(@"MOBILE_DATA_PLAN")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MobileDataPlan = 706;
+                [Google.Protobuf.Reflection.OriginalName(@"MOBILESDK_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MobilesdkClient = 104;
+                [Google.Protobuf.Reflection.OriginalName(@"MOMA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Moma = 531;
+                [Google.Protobuf.Reflection.OriginalName(@"MOMA_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MomaCounters = 573;
+                [Google.Protobuf.Reflection.OriginalName(@"MOTION_STILLS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MotionStills = 680;
+                [Google.Protobuf.Reflection.OriginalName(@"MOVIES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Movies = 74;
+                [Google.Protobuf.Reflection.OriginalName(@"MUSIC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Music = 1;
+                [Google.Protobuf.Reflection.OriginalName(@"MUSK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Musk = 657;
+                [Google.Protobuf.Reflection.OriginalName(@"MUSTARD_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MustardAndroidPrimes = 641;
+                [Google.Protobuf.Reflection.OriginalName(@"MYALO_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MyaloAndroidPrimes = 512;
+                [Google.Protobuf.Reflection.OriginalName(@"MYFIBER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Myfiber = 194;
+                [Google.Protobuf.Reflection.OriginalName(@"MYGLASS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource MyglassAndroidPrimes = 598;
+                [Google.Protobuf.Reflection.OriginalName(@"NAKSHA_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NakshaAndroidPrimes = 562;
+                [Google.Protobuf.Reflection.OriginalName(@"NAZDEEK_CAB_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NazdeekCabAndroidPrimes = 316;
+                [Google.Protobuf.Reflection.OriginalName(@"NAZDEEK_CAFE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NazdeekCafeAndroidPrimes = 317;
+                [Google.Protobuf.Reflection.OriginalName(@"NAZDEEK_USER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NazdeekUserAndroidPrimes = 315;
+                [Google.Protobuf.Reflection.OriginalName(@"NEARBY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Nearby = 553;
+                [Google.Protobuf.Reflection.OriginalName(@"NEARBY_AUTH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NearbyAuth = 426;
+                [Google.Protobuf.Reflection.OriginalName(@"NETREC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Netrec = 501;
+                [Google.Protobuf.Reflection.OriginalName(@"NETREC_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NetrecCounters = 502;
+                [Google.Protobuf.Reflection.OriginalName(@"NETSTATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Netstats = 62;
+                [Google.Protobuf.Reflection.OriginalName(@"NETSTATS_GMS_PREV14")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NetstatsGmsPrev14 = 670;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWS_EVENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NewsEvent = 518;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWSSTAND")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Newsstand = 63;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWSSTAND_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NewsstandAndroidPrimes = 455;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWSSTAND_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NewsstandIosPrimes = 651;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWS_WEATHER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NewsWeather = 38;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWS_WEATHER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NewsWeatherAndroidPrimes = 458;
+                [Google.Protobuf.Reflection.OriginalName(@"NEWS_WEATHER_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NewsWeatherIosPrimes = 459;
+                [Google.Protobuf.Reflection.OriginalName(@"NFC_PROGRAMMER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NfcProgrammer = 61;
+                [Google.Protobuf.Reflection.OriginalName(@"NOTIFICATION_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NotificationStats = 182;
+                [Google.Protobuf.Reflection.OriginalName(@"NOVA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Nova = 34;
+                [Google.Protobuf.Reflection.OriginalName(@"NOVA_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource NovaAndroidPrimes = 249;
+                [Google.Protobuf.Reflection.OriginalName(@"NQLOOKUP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Nqlookup = 174;
+                [Google.Protobuf.Reflection.OriginalName(@"OAUTH_INTEGRATIONS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OauthIntegrations = 555;
+                [Google.Protobuf.Reflection.OriginalName(@"ONEGOOGLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Onegoogle = 373;
+                [Google.Protobuf.Reflection.OriginalName(@"ONEGOOGLE_MOBILE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OnegoogleMobile = 635;
+                [Google.Protobuf.Reflection.OriginalName(@"ON_THE_GO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OnTheGo = 145;
+                [Google.Protobuf.Reflection.OriginalName(@"ON_THE_GO_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OnTheGoAndroidPrimes = 330;
+                [Google.Protobuf.Reflection.OriginalName(@"ON_THE_GO_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OnTheGoCounters = 146;
+                [Google.Protobuf.Reflection.OriginalName(@"ON_THE_GO_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OnTheGoIosPrimes = 368;
+                [Google.Protobuf.Reflection.OriginalName(@"OPA_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OpaIos = 529;
+                [Google.Protobuf.Reflection.OriginalName(@"OPA_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OpaIosPrimes = 578;
+                [Google.Protobuf.Reflection.OriginalName(@"OPA_TV")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OpaTv = 650;
+                [Google.Protobuf.Reflection.OriginalName(@"ORCHESTRATION_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OrchestrationClient = 245;
+                [Google.Protobuf.Reflection.OriginalName(@"ORCHESTRATION_CLIENT_DEV")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource OrchestrationClientDev = 246;
+                [Google.Protobuf.Reflection.OriginalName(@"PAISA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Paisa = 294;
+                [Google.Protobuf.Reflection.OriginalName(@"PAISA_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PaisaCounters = 563;
+                [Google.Protobuf.Reflection.OriginalName(@"PAISA_MERCHANT_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PaisaMerchantAndroidPrimes = 322;
+                [Google.Protobuf.Reflection.OriginalName(@"PAISA_USER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PaisaUser = 456;
+                [Google.Protobuf.Reflection.OriginalName(@"PAISA_USER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PaisaUserAndroidPrimes = 321;
+                [Google.Protobuf.Reflection.OriginalName(@"PAISA_USER_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PaisaUserIosPrimes = 329;
+                [Google.Protobuf.Reflection.OriginalName(@"PANCETTA_MOBILE_HOST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PancettaMobileHost = 138;
+                [Google.Protobuf.Reflection.OriginalName(@"PANCETTA_MOBILE_HOST_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PancettaMobileHostCounters = 139;
+                [Google.Protobuf.Reflection.OriginalName(@"PAYMENTS_OCR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PaymentsOcr = 164;
+                [Google.Protobuf.Reflection.OriginalName(@"PDF_VIEWER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PdfViewer = 190;
+                [Google.Protobuf.Reflection.OriginalName(@"PDM_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PdmCounters = 440;
+                [Google.Protobuf.Reflection.OriginalName(@"PEOPLE_AUTOCOMPLETE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PeopleAutocomplete = 574;
+                [Google.Protobuf.Reflection.OriginalName(@"PEOPLE_AUTOCOMPLETE_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PeopleAutocompleteClient = 625;
+                [Google.Protobuf.Reflection.OriginalName(@"PERF_PROFILE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PerfProfile = 73;
+                [Google.Protobuf.Reflection.OriginalName(@"PERSONAL_BROWSER_LOGGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PersonalBrowserLogger = 37;
+                [Google.Protobuf.Reflection.OriginalName(@"PERSONAL_LOGGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PersonalLogger = 22;
+                [Google.Protobuf.Reflection.OriginalName(@"PHENOTYPE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Phenotype = 69;
+                [Google.Protobuf.Reflection.OriginalName(@"PHENOTYPE_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PhenotypeCounters = 70;
+                [Google.Protobuf.Reflection.OriginalName(@"PHENOTYPE_DEMO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PhenotypeDemo = 484;
+                [Google.Protobuf.Reflection.OriginalName(@"PHOTOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Photos = 42;
+                [Google.Protobuf.Reflection.OriginalName(@"PHOTOS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PhotosAndroidPrimes = 165;
+                [Google.Protobuf.Reflection.OriginalName(@"PHOTOS_DRAPER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PhotosDraperAndroidPrimes = 253;
+                [Google.Protobuf.Reflection.OriginalName(@"PHOTOS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PhotosIosPrimes = 337;
+                [Google.Protobuf.Reflection.OriginalName(@"PHOTOS_SCANNER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PhotosScanner = 406;
+                [Google.Protobuf.Reflection.OriginalName(@"PIGEON_EXPERIMENTAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PigeonExperimental = 480;
+                [Google.Protobuf.Reflection.OriginalName(@"PIXEL_AMBIENT_SERVICES_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PixelAmbientServicesPrimes = 673;
+                [Google.Protobuf.Reflection.OriginalName(@"PIXEL_HW_INFO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PixelHwInfo = 594;
+                [Google.Protobuf.Reflection.OriginalName(@"PIXEL_PERFECT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PixelPerfect = 54;
+                [Google.Protobuf.Reflection.OriginalName(@"PIXEL_PERFECT_CLIENT_STATE_LOGGER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PixelPerfectClientStateLogger = 187;
+                [Google.Protobuf.Reflection.OriginalName(@"PLACES_NO_GLS_CONSENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlacesNoGlsConsent = 97;
+                [Google.Protobuf.Reflection.OriginalName(@"PLATFORM_STATS_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlatformStatsCounters = 188;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_CONSOLE_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayConsoleApp = 226;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_CONSOLE_APP_FEATURE_ANALYTICS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayConsoleAppFeatureAnalytics = 507;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_CONSOLE_APP_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayConsoleAppPrimes = 264;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_GAMES_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayGamesPrimes = 332;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_MOVIES_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayMoviesAndroidPrimes = 467;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_MUSIC_ANDROID_APP_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayMusicAndroidAppPrimes = 434;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_MUSIC_ANDROID_WEAR_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayMusicAndroidWearPrimes = 200;
+                [Google.Protobuf.Reflection.OriginalName(@"PLAY_MUSIC_ANDROID_WEAR_STANDALONE_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PlayMusicAndroidWearStandalonePrimes = 419;
+                [Google.Protobuf.Reflection.OriginalName(@"POCKETWATCH_ANDROID_WEAR_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PocketwatchAndroidWearPrimes = 511;
+                [Google.Protobuf.Reflection.OriginalName(@"PREDICT_ON_DEVICE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PredictOnDevice = 554;
+                [Google.Protobuf.Reflection.OriginalName(@"PRIMES_INTERNAL_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PrimesInternalAndroidPrimes = 692;
+                [Google.Protobuf.Reflection.OriginalName(@"PROC_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ProcStats = 93;
+                [Google.Protobuf.Reflection.OriginalName(@"PROXIMITY_AUTH_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ProximityAuthCounters = 702;
+                [Google.Protobuf.Reflection.OriginalName(@"PROXY_COMPANION_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ProxyCompanionAndroidPrimes = 580;
+                [Google.Protobuf.Reflection.OriginalName(@"PSEUDONYMOUS_ID_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource PseudonymousIdCounters = 579;
+                [Google.Protobuf.Reflection.OriginalName(@"PULPFICTION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Pulpfiction = 371;
+                [Google.Protobuf.Reflection.OriginalName(@"PYROCLASM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Pyroclasm = 153;
+                [Google.Protobuf.Reflection.OriginalName(@"REACHABILITY_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ReachabilityGcore = 523;
+                [Google.Protobuf.Reflection.OriginalName(@"RECORDED_PAGES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource RecordedPages = 195;
+                [Google.Protobuf.Reflection.OriginalName(@"REVEAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Reveal = 590;
+                [Google.Protobuf.Reflection.OriginalName(@"ROMANESCO_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource RomanescoGcore = 478;
+                [Google.Protobuf.Reflection.OriginalName(@"ROYALMINT_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource RoyalmintAndroidPrimes = 587;
+                [Google.Protobuf.Reflection.OriginalName(@"RUNWAY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Runway = 629;
+                [Google.Protobuf.Reflection.OriginalName(@"SAMPLE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SampleIosPrimes = 202;
+                [Google.Protobuf.Reflection.OriginalName(@"SAMPLE_SHM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SampleShm = 136;
+                [Google.Protobuf.Reflection.OriginalName(@"SANDCLOCK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Sandclock = 341;
+                [Google.Protobuf.Reflection.OriginalName(@"SAVE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Save = 663;
+                [Google.Protobuf.Reflection.OriginalName(@"SCONE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SconeAndroidPrimes = 705;
+                [Google.Protobuf.Reflection.OriginalName(@"SCOOBY_EVENT_LOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ScoobyEventLog = 616;
+                [Google.Protobuf.Reflection.OriginalName(@"SCOOBY_EVENTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ScoobyEvents = 296;
+                [Google.Protobuf.Reflection.OriginalName(@"SCOOBY_SPAM_REPORT_LOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ScoobySpamReportLog = 250;
+                [Google.Protobuf.Reflection.OriginalName(@"SDP_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SdpIosPrimes = 287;
+                [Google.Protobuf.Reflection.OriginalName(@"SEARCH_CONSOLE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SearchConsole = 648;
+                [Google.Protobuf.Reflection.OriginalName(@"SEARCHLITE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Searchlite = 506;
+                [Google.Protobuf.Reflection.OriginalName(@"SEARCHLITE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SearchliteAndroidPrimes = 425;
+                [Google.Protobuf.Reflection.OriginalName(@"SEARCH_ON_BOQ")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SearchOnBoq = 704;
+                [Google.Protobuf.Reflection.OriginalName(@"SEMANTIC_LOCATION_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SemanticLocationCounters = 712;
+                [Google.Protobuf.Reflection.OriginalName(@"SENDKIT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Sendkit = 624;
+                [Google.Protobuf.Reflection.OriginalName(@"SENSE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Sense = 83;
+                [Google.Protobuf.Reflection.OriginalName(@"SENSE_AMBIENTMUSIC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SenseAmbientmusic = 601;
+                [Google.Protobuf.Reflection.OriginalName(@"SENSE_DND")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SenseDnd = 602;
+                [Google.Protobuf.Reflection.OriginalName(@"SESAME")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Sesame = 216;
+                [Google.Protobuf.Reflection.OriginalName(@"SESAME_CAMERA_LAUNCH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SesameCameraLaunch = 504;
+                [Google.Protobuf.Reflection.OriginalName(@"SESAME_TRUST_API_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SesameTrustApiPrimes = 527;
+                [Google.Protobuf.Reflection.OriginalName(@"SESAME_UNLOCK_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SesameUnlockCounters = 532;
+                [Google.Protobuf.Reflection.OriginalName(@"SESAME_UNLOCK_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SesameUnlockPrimes = 526;
+                [Google.Protobuf.Reflection.OriginalName(@"SETTINGS_INTELLIGENCE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SettingsIntelligence = 674;
+                [Google.Protobuf.Reflection.OriginalName(@"SETTINGS_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SettingsStats = 390;
+                [Google.Protobuf.Reflection.OriginalName(@"SETUP_WIZARD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SetupWizard = 87;
+                [Google.Protobuf.Reflection.OriginalName(@"SHEETS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Sheets = 57;
+                [Google.Protobuf.Reflection.OriginalName(@"SHEETS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SheetsAndroidPrimes = 167;
+                [Google.Protobuf.Reflection.OriginalName(@"SHEETS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SheetsIosPrimes = 310;
+                [Google.Protobuf.Reflection.OriginalName(@"SHERLOG")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Sherlog = 108;
+                [Google.Protobuf.Reflection.OriginalName(@"SIDELOADED_MUSIC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SideloadedMusic = 400;
+                [Google.Protobuf.Reflection.OriginalName(@"SLIDES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Slides = 58;
+                [Google.Protobuf.Reflection.OriginalName(@"SLIDES_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SlidesAndroidPrimes = 168;
+                [Google.Protobuf.Reflection.OriginalName(@"SLIDES_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SlidesIosPrimes = 309;
+                [Google.Protobuf.Reflection.OriginalName(@"SMARTCAM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Smartcam = 348;
+                [Google.Protobuf.Reflection.OriginalName(@"SMARTKEY_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SmartkeyApp = 269;
+                [Google.Protobuf.Reflection.OriginalName(@"SMARTLOCK_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SmartlockCounters = 184;
+                [Google.Protobuf.Reflection.OriginalName(@"SMART_LOCK_IOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SmartLockIos = 468;
+                [Google.Protobuf.Reflection.OriginalName(@"SMART_SETUP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SmartSetup = 355;
+                [Google.Protobuf.Reflection.OriginalName(@"SMS_SYNC_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SmsSyncCounters = 571;
+                [Google.Protobuf.Reflection.OriginalName(@"SNAPSEED")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Snapseed = 413;
+                [Google.Protobuf.Reflection.OriginalName(@"SNAPSEED_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SnapseedAndroidPrimes = 178;
+                [Google.Protobuf.Reflection.OriginalName(@"SNAPSEED_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SnapseedIosPrimes = 297;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Social = 32;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_AFFINITY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialAffinity = 41;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_AFFINITY_APDL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialAffinityApdl = 707;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_AFFINITY_GMAIL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialAffinityGmail = 515;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_AFFINITY_INBOX")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialAffinityInbox = 516;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_AFFINITY_PHOTOS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialAffinityPhotos = 465;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_APPINVITE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialAppinvite = 76;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialCounters = 420;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_GOOD_DONATION_WIDGET")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialGoodDonationWidget = 340;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_USER_LOCATION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialUserLocation = 101;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIAL_WEB")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocialWeb = 47;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIETY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Society = 275;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIETY_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocietyAndroidPrimes = 238;
+                [Google.Protobuf.Reflection.OriginalName(@"SOCIETY_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SocietyCounters = 379;
+                [Google.Protobuf.Reflection.OriginalName(@"SPACES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Spaces = 383;
+                [Google.Protobuf.Reflection.OriginalName(@"SPACES_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SpacesAndroidPrimes = 236;
+                [Google.Protobuf.Reflection.OriginalName(@"SPACES_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SpacesIosPrimes = 276;
+                [Google.Protobuf.Reflection.OriginalName(@"SPEAKEASY_BARKEEP_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SpeakeasyBarkeepClient = 481;
+                [Google.Protobuf.Reflection.OriginalName(@"SPECTRUM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Spectrum = 230;
+                [Google.Protobuf.Reflection.OriginalName(@"SPECTRUM_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SpectrumAndroidPrimes = 267;
+                [Google.Protobuf.Reflection.OriginalName(@"SPECTRUM_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SpectrumCounters = 231;
+                [Google.Protobuf.Reflection.OriginalName(@"STAX")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Stax = 454;
+                [Google.Protobuf.Reflection.OriginalName(@"STORAGED")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Storaged = 539;
+                [Google.Protobuf.Reflection.OriginalName(@"STORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Store = 0;
+                [Google.Protobuf.Reflection.OriginalName(@"STREAMZ")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Streamz = 604;
+                [Google.Protobuf.Reflection.OriginalName(@"STREET_VIEW")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource StreetView = 453;
+                [Google.Protobuf.Reflection.OriginalName(@"SV_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SvAndroidPrimes = 336;
+                [Google.Protobuf.Reflection.OriginalName(@"SV_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource SvIosPrimes = 354;
+                [Google.Protobuf.Reflection.OriginalName(@"TACHYON_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TachyonAndroidPrimes = 279;
+                [Google.Protobuf.Reflection.OriginalName(@"TACHYON_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TachyonCounters = 99;
+                [Google.Protobuf.Reflection.OriginalName(@"TACHYON_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TachyonIosPrimes = 645;
+                [Google.Protobuf.Reflection.OriginalName(@"TACHYON_LOG_REQUEST")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TachyonLogRequest = 98;
+                [Google.Protobuf.Reflection.OriginalName(@"TAILORMADE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Tailormade = 127;
+                [Google.Protobuf.Reflection.OriginalName(@"TALKBACK")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Talkback = 660;
+                [Google.Protobuf.Reflection.OriginalName(@"TANGO_CORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TangoCore = 477;
+                [Google.Protobuf.Reflection.OriginalName(@"TANGO_CORE_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TangoCoreCounters = 483;
+                [Google.Protobuf.Reflection.OriginalName(@"TAP_AND_PAY_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TapAndPayAndroidPrimes = 227;
+                [Google.Protobuf.Reflection.OriginalName(@"TAP_AND_PAY_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TapAndPayApp = 119;
+                [Google.Protobuf.Reflection.OriginalName(@"TAP_AND_PAY_APP_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TapAndPayAppCounters = 265;
+                [Google.Protobuf.Reflection.OriginalName(@"TAP_AND_PAY_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TapAndPayGcore = 94;
+                [Google.Protobuf.Reflection.OriginalName(@"TASKS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Tasks = 652;
+                [Google.Protobuf.Reflection.OriginalName(@"TASKS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TasksAndroidPrimes = 631;
+                [Google.Protobuf.Reflection.OriginalName(@"TASKS_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TasksIosPrimes = 718;
+                [Google.Protobuf.Reflection.OriginalName(@"TELECOM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Telecom = 210;
+                [Google.Protobuf.Reflection.OriginalName(@"TELECOM_PLATFORM_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TelecomPlatformStats = 444;
+                [Google.Protobuf.Reflection.OriginalName(@"TELEMATICS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Telematics = 49;
+                [Google.Protobuf.Reflection.OriginalName(@"TELEPHONY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Telephony = 211;
+                [Google.Protobuf.Reflection.OriginalName(@"TELEPHONY_PLATFORM_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TelephonyPlatformStats = 449;
+                [Google.Protobuf.Reflection.OriginalName(@"TESTDRIVE_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TestdrivePrimes = 450;
+                [Google.Protobuf.Reflection.OriginalName(@"TETHERING_ENTITLEMENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TetheringEntitlement = 711;
+                [Google.Protobuf.Reflection.OriginalName(@"THUNDERBIRD")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Thunderbird = 370;
+                [Google.Protobuf.Reflection.OriginalName(@"TOOLKIT_QUICKSTART")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ToolkitQuickstart = 384;
+                [Google.Protobuf.Reflection.OriginalName(@"TOPAZ")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Topaz = 367;
+                [Google.Protobuf.Reflection.OriginalName(@"TOPAZ_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TopazAndroidPrimes = 418;
+                [Google.Protobuf.Reflection.OriginalName(@"TOPAZ_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TopazApp = 489;
+                [Google.Protobuf.Reflection.OriginalName(@"TOPAZ_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TopazIosPrimes = 517;
+                [Google.Protobuf.Reflection.OriginalName(@"TRANSLATE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Translate = 375;
+                [Google.Protobuf.Reflection.OriginalName(@"TRANSLATE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TranslateAndroidPrimes = 255;
+                [Google.Protobuf.Reflection.OriginalName(@"TRANSLATE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TranslateIosPrimes = 256;
+                [Google.Protobuf.Reflection.OriginalName(@"TRANSOM")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Transom = 114;
+                [Google.Protobuf.Reflection.OriginalName(@"TRANSOM_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TransomCounters = 115;
+                [Google.Protobuf.Reflection.OriginalName(@"TRAVEL_BOOKING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TravelBooking = 470;
+                [Google.Protobuf.Reflection.OriginalName(@"TRAVEL_VACATIONS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TravelVacations = 569;
+                [Google.Protobuf.Reflection.OriginalName(@"TRENDS_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TrendsClient = 591;
+                [Google.Protobuf.Reflection.OriginalName(@"TRON")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Tron = 89;
+                [Google.Protobuf.Reflection.OriginalName(@"TRON_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TronCounters = 90;
+                [Google.Protobuf.Reflection.OriginalName(@"TRUSTED_FACE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TrustedFace = 204;
+                [Google.Protobuf.Reflection.OriginalName(@"TURBO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Turbo = 599;
+                [Google.Protobuf.Reflection.OriginalName(@"TURBO_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TurboAndroidPrimes = 713;
+                [Google.Protobuf.Reflection.OriginalName(@"TV_LAUNCHER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TvLauncher = 658;
+                [Google.Protobuf.Reflection.OriginalName(@"TV_LAUNCHER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TvLauncherAndroidPrimes = 643;
+                [Google.Protobuf.Reflection.OriginalName(@"TVPRESENCE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TvpresenceAndroidPrimes = 486;
+                [Google.Protobuf.Reflection.OriginalName(@"TV_RECOMMENDATIONS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource TvRecommendationsAndroidPrimes = 644;
+                [Google.Protobuf.Reflection.OriginalName(@"UDR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Udr = 30;
+                [Google.Protobuf.Reflection.OriginalName(@"ULR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Ulr = 464;
+                [Google.Protobuf.Reflection.OriginalName(@"UNICOMM_P")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource UnicommP = 380;
+                [Google.Protobuf.Reflection.OriginalName(@"UNICOMM_S")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource UnicommS = 381;
+                [Google.Protobuf.Reflection.OriginalName(@"UNICORN_FAMILY_MANAGEMENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource UnicornFamilyManagement = 172;
+                [Google.Protobuf.Reflection.OriginalName(@"UNKNOWN")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Unknown = -1;
+                [Google.Protobuf.Reflection.OriginalName(@"USER_LOCATION_REPORTING")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource UserLocationReporting = 714;
+                public int value__;
+                [Google.Protobuf.Reflection.OriginalName(@"VENUS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Venus = 708;
+                [Google.Protobuf.Reflection.OriginalName(@"VESPA_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VespaIosPrimes = 331;
+                [Google.Protobuf.Reflection.OriginalName(@"VIDEO")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Video = 3;
+                [Google.Protobuf.Reflection.OriginalName(@"VIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Vimes = 550;
+                [Google.Protobuf.Reflection.OriginalName(@"VISION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Vision = 100;
+                [Google.Protobuf.Reflection.OriginalName(@"VISUAL_SEMANTIC_LIFT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VisualSemanticLift = 568;
+                [Google.Protobuf.Reflection.OriginalName(@"VOICE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Voice = 192;
+                [Google.Protobuf.Reflection.OriginalName(@"VOICE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VoiceAndroidPrimes = 293;
+                [Google.Protobuf.Reflection.OriginalName(@"VOICE_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VoiceIosPrimes = 292;
+                [Google.Protobuf.Reflection.OriginalName(@"VR")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Vr = 85;
+                [Google.Protobuf.Reflection.OriginalName(@"VR180_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Vr180AndroidPrimes = 687;
+                [Google.Protobuf.Reflection.OriginalName(@"VR180_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Vr180IosPrimes = 688;
+                [Google.Protobuf.Reflection.OriginalName(@"VR_COMMS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrComms = 638;
+                [Google.Protobuf.Reflection.OriginalName(@"VRCORE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrcoreAndroidPrimes = 530;
+                [Google.Protobuf.Reflection.OriginalName(@"VR_SDK_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrSdkAndroidPrimes = 404;
+                [Google.Protobuf.Reflection.OriginalName(@"VR_SDK_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrSdkIosPrimes = 403;
+                [Google.Protobuf.Reflection.OriginalName(@"VR_SOCIAL")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrSocial = 630;
+                [Google.Protobuf.Reflection.OriginalName(@"VR_STREAMING_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrStreamingAndroidPrimes = 522;
+                [Google.Protobuf.Reflection.OriginalName(@"VR_STREAMING_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource VrStreamingCounters = 514;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLET_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WalletApp = 198;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLET_APP_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WalletAppAndroidPrimes = 232;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLET_APP_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WalletAppIosPrimes = 233;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLET_SDK_GCORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WalletSdkGcore = 361;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLPAPER_PICKER")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WallpaperPicker = 299;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLPAPER_PICKER_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WallpaperPickerAndroidPrimes = 466;
+                [Google.Protobuf.Reflection.OriginalName(@"WALLPAPER_PICKER_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WallpaperPickerCounters = 377;
+                [Google.Protobuf.Reflection.OriginalName(@"WARP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Warp = 60;
+                [Google.Protobuf.Reflection.OriginalName(@"WEAR_CHAMELEON")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WearChameleon = 632;
+                [Google.Protobuf.Reflection.OriginalName(@"WEAR_KEYBOARD_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WearKeyboardAndroidPrimes = 703;
+                [Google.Protobuf.Reflection.OriginalName(@"WEB_CONTACTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WebContacts = 365;
+                [Google.Protobuf.Reflection.OriginalName(@"WEB_SEARCH")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WebSearch = 596;
+                [Google.Protobuf.Reflection.OriginalName(@"WEB_STORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WebStore = 65;
+                [Google.Protobuf.Reflection.OriginalName(@"WESTINGHOUSE_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WestinghouseCounters = 360;
+                [Google.Protobuf.Reflection.OriginalName(@"WESTINGHOUSE_ODYSSEY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WestinghouseOdyssey = 471;
+                [Google.Protobuf.Reflection.OriginalName(@"WFC_ACTIVATION")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WfcActivation = 717;
+                [Google.Protobuf.Reflection.OriginalName(@"WHISTLEPUNK_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WhistlepunkAndroidPrimes = 610;
+                [Google.Protobuf.Reflection.OriginalName(@"WHISTLEPUNK_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WhistlepunkIosPrimes = 611;
+                [Google.Protobuf.Reflection.OriginalName(@"WH_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WhPrimes = 248;
+                [Google.Protobuf.Reflection.OriginalName(@"WIFI")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Wifi = 209;
+                [Google.Protobuf.Reflection.OriginalName(@"WIFI_ASSISTANT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WifiAssistant = 66;
+                [Google.Protobuf.Reflection.OriginalName(@"WIFI_ASSISTANT_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WifiAssistantCounters = 709;
+                [Google.Protobuf.Reflection.OriginalName(@"WIFI_ASSISTANT_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WifiAssistantPrimes = 326;
+                [Google.Protobuf.Reflection.OriginalName(@"WIFI_PLATFORM_STATS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WifiPlatformStats = 445;
+                [Google.Protobuf.Reflection.OriginalName(@"WING_MARKETPLACE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WingMarketplaceAndroidPrimes = 282;
+                [Google.Protobuf.Reflection.OriginalName(@"WING_OPENSKY_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WingOpenskyAndroidPrimes = 719;
+                [Google.Protobuf.Reflection.OriginalName(@"WORK_STORE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WorkStore = 132;
+                [Google.Protobuf.Reflection.OriginalName(@"WORK_STORE_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource WorkStoreApp = 261;
+                [Google.Protobuf.Reflection.OriginalName(@"YETI")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Yeti = 485;
+                [Google.Protobuf.Reflection.OriginalName(@"YETI_CLIENT")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YetiClient = 618;
+                [Google.Protobuf.Reflection.OriginalName(@"YETI_GUESTORC")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YetiGuestorc = 679;
+                [Google.Protobuf.Reflection.OriginalName(@"YETI_PTS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YetiPts = 693;
+                [Google.Protobuf.Reflection.OriginalName(@"YETI_STREAMZ")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YetiStreamz = 642;
+                [Google.Protobuf.Reflection.OriginalName(@"YETI_TLS_PROXY")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YetiTlsProxy = 696;
+                [Google.Protobuf.Reflection.OriginalName(@"YOUTUBE_DIRECTOR_APP")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YoutubeDirectorApp = 278;
+                [Google.Protobuf.Reflection.OriginalName(@"YOUTUBE_DIRECTOR_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YoutubeDirectorIosPrimes = 298;
+                [Google.Protobuf.Reflection.OriginalName(@"YOUTUBE_UNPLUGGED_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YoutubeUnpluggedIosPrimes = 430;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_CREATOR_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtCreatorAndroidPrimes = 171;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_GAMING_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtGamingAndroidPrimes = 156;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_KIDS_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtKidsAndroidPrimes = 155;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_LITE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtLiteAndroidPrimes = 158;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_MAIN")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtMain = 281;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_MAIN_APP_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtMainAppAndroidPrimes = 154;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_MUSIC_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtMusicAndroidPrimes = 157;
+                [Google.Protobuf.Reflection.OriginalName(@"YT_UNPLUGGED_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource YtUnpluggedAndroidPrimes = 589;
+                [Google.Protobuf.Reflection.OriginalName(@"ZAGAT_BURGUNDY_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ZagatBurgundyAndroidPrimes = 352;
+                [Google.Protobuf.Reflection.OriginalName(@"ZAGAT_BURGUNDY_IOS_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ZagatBurgundyIosPrimes = 351;
+                [Google.Protobuf.Reflection.OriginalName(@"ZAGAT_IOS_AUTHENTICATED")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ZagatIosAuthenticated = 463;
+                [Google.Protobuf.Reflection.OriginalName(@"ZAGAT_IOS_PSEUDONYMOUS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ZagatIosPseudonymous = 469;
+                [Google.Protobuf.Reflection.OriginalName(@"ZANDRIA")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Zandria = 565;
+                [Google.Protobuf.Reflection.OriginalName(@"ZEBEDEE")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource Zebedee = 649;
+                [Google.Protobuf.Reflection.OriginalName(@"ZEBEDEE_ANDROID_PRIMES")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ZebedeeAndroidPrimes = 584;
+                [Google.Protobuf.Reflection.OriginalName(@"ZEBEDEE_COUNTERS")] public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogRequest.Types.LogSource ZebedeeCounters = 633;
+            }
+        }
+    }
+
+    public sealed class LogResponse : Google.Protobuf.IDeepCloneable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse>, Google.Protobuf.IMessage, Google.Protobuf.IMessage<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse>, System.IEquatable<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse>
+    {
+        public const int NextRequestWaitMillisValFieldNumber = 1;
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.Reflection.MessageDescriptor Descriptor { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse.NextRequestWaitMillisOneofCase NextRequestWaitMillisCase { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public long NextRequestWaitMillisVal { get; set; }
+        [System.Diagnostics.DebuggerNonUserCode] public static Google.Protobuf.MessageParser<Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse> Parser { get; }
+        [System.Diagnostics.DebuggerNonUserCode] public LogResponse() {}
+        [System.Diagnostics.DebuggerNonUserCode] public LogResponse(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse other) {}
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int CalculateSize();
+        [System.Diagnostics.DebuggerNonUserCode] public void ClearNextRequestWaitMillis();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse Clone();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual bool Equals(object other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual int GetHashCode();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.Protobuf.CodedInputStream input);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void MergeFrom(Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse other);
+        [System.Diagnostics.DebuggerNonUserCode] public virtual string ToString();
+        [System.Diagnostics.DebuggerNonUserCode] public virtual void WriteTo(Google.Protobuf.CodedOutputStream output);
+        public enum NextRequestWaitMillisOneofCase
+        {
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse.NextRequestWaitMillisOneofCase NextRequestWaitMillisVal = 1;
+            public const Google.XR.ARCoreExtensions.Editor.Internal.Proto.LogResponse.NextRequestWaitMillisOneofCase None = 0;
+            public int value__;
+        }
+    }
+}

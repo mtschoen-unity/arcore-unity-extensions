@@ -1,0 +1,271 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+namespace Google.XR.ARCoreExtensions
+{
+    [System.Runtime.CompilerServices.Extension] public static class ARAnchorManagerExtensions
+    {
+        [System.Obsolete(@"This method has been deprecated. Please use HostCloudAnchor(ARAnchor) instead.")] [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.ARCloudReferencePoint AddCloudReferencePoint(UnityEngine.XR.ARFoundation.ARAnchorManager referencePointManager, UnityEngine.XR.ARFoundation.ARAnchor referencePoint);
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.FeatureMapQuality EstimateFeatureMapQualityForHosting(UnityEngine.XR.ARFoundation.ARAnchorManager anchorManager, UnityEngine.Pose pose);
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.ARCloudAnchor HostCloudAnchor(UnityEngine.XR.ARFoundation.ARAnchorManager anchorManager, UnityEngine.XR.ARFoundation.ARAnchor anchor);
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.ARCloudAnchor HostCloudAnchor(UnityEngine.XR.ARFoundation.ARAnchorManager anchorManager, UnityEngine.XR.ARFoundation.ARAnchor anchor, int ttlDays);
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.ARCloudAnchor ResolveCloudAnchorId(UnityEngine.XR.ARFoundation.ARAnchorManager anchorManager, string cloudAnchorId);
+        [System.Obsolete(@"This method has been deprecated. Please use ResolveCloudAnchorId(string) instead.")] [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.ARCloudReferencePoint ResolveCloudReferenceId(UnityEngine.XR.ARFoundation.ARAnchorManager referencePointManager, string cloudReferenceId);
+        [System.Runtime.CompilerServices.Extension] public static void SetAuthToken(UnityEngine.XR.ARFoundation.ARAnchorManager anchorManager, string authToken);
+    }
+
+    public class ARCloudAnchor : UnityEngine.MonoBehaviour, UnityEngine.XR.ARSubsystems.ITrackable
+    {
+        public string cloudAnchorId { get; }
+        public Google.XR.ARCoreExtensions.CloudAnchorState cloudAnchorState { get; }
+        public virtual System.IntPtr nativePtr { get; }
+        public virtual UnityEngine.Pose pose { get; }
+        public virtual UnityEngine.XR.ARSubsystems.TrackableId trackableId { get; }
+        public virtual UnityEngine.XR.ARSubsystems.TrackingState trackingState { get; }
+        public ARCloudAnchor() {}
+        public void OnDestroy();
+        public void Update();
+    }
+
+    [System.Obsolete(@"This class has been renamed to ARCloudAnchor. See details in release notes v1.16.0.")] public class ARCloudReferencePoint : Google.XR.ARCoreExtensions.ARCloudAnchor
+    {
+        public string cloudReferenceId { get; }
+        public Google.XR.ARCoreExtensions.CloudReferenceState cloudReferenceState { get; }
+        public UnityEngine.Pose pose { get; }
+        public UnityEngine.XR.ARSubsystems.TrackableId trackableId { get; }
+        public UnityEngine.XR.ARSubsystems.TrackingState trackingState { get; }
+        public ARCloudReferencePoint() {}
+        public void Update();
+    }
+
+    public class ARCoreExtensions : UnityEngine.MonoBehaviour
+    {
+        public Google.XR.ARCoreExtensions.ARCoreExtensionsConfig ARCoreExtensionsConfig;
+        [UnityEngine.Tooltip(@"Configuration options to select the camera mode and features.")] public Google.XR.ARCoreExtensions.ARCoreExtensionsCameraConfigFilter CameraConfigFilter;
+        public UnityEngine.XR.ARFoundation.ARCameraManager CameraManager;
+        [UnityEngine.HideInInspector] public Google.XR.ARCoreExtensions.ARCoreExtensions.OnChooseXRCameraConfigurationEvent OnChooseXRCameraConfiguration;
+        public UnityEngine.XR.ARFoundation.ARSession Session;
+        public UnityEngine.XR.ARFoundation.ARSessionOrigin SessionOrigin;
+        public ARCoreExtensions() {}
+        public void Awake();
+        public void OnDestroy();
+        public void OnDisable();
+        public void OnEnable();
+        public void Start();
+        public void Update();
+        public delegate int OnChooseXRCameraConfigurationEvent(System.Collections.Generic.List<UnityEngine.XR.ARSubsystems.XRCameraConfiguration> supportedConfigurations);
+    }
+
+    [UnityEngine.CreateAssetMenu(fileName = @"ARCoreExtensionsCameraConfigFilter", menuName = @"ARCore Extensions/Camera Config Filter", order = 2)] public class ARCoreExtensionsCameraConfigFilter : UnityEngine.ScriptableObject
+    {
+        [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetDepthSensorUsageInfo")] [Google.XR.ARCoreExtensions.Internal.EnumFlags(typeof(Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage))] public Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage DepthSensorUsage;
+        [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetStereoCameraUsageInfo")] [Google.XR.ARCoreExtensions.Internal.EnumFlags(typeof(Google.XR.ARCoreExtensions.CameraConfigStereoCameraUsage))] public Google.XR.ARCoreExtensions.CameraConfigStereoCameraUsage StereoCameraUsage;
+        [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetTargetCameraFramerateInfo")] [Google.XR.ARCoreExtensions.Internal.EnumFlags(typeof(Google.XR.ARCoreExtensions.CameraConfigTargetFps))] public Google.XR.ARCoreExtensions.CameraConfigTargetFps TargetCameraFramerate;
+        public ARCoreExtensionsCameraConfigFilter() {}
+        public void CopyFrom(Google.XR.ARCoreExtensions.ARCoreExtensionsCameraConfigFilter otherFilter);
+        public virtual bool Equals(object other);
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetDepthSensorUsageInfo();
+        public virtual int GetHashCode();
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetStereoCameraUsageInfo();
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetTargetCameraFramerateInfo();
+        public void OnValidate();
+    }
+
+    [UnityEngine.CreateAssetMenu(fileName = @"ARCoreExtensionsConfig", menuName = @"ARCore Extensions/ARCore Extensions Config", order = 1)] public class ARCoreExtensionsConfig : UnityEngine.ScriptableObject
+    {
+        [UnityEngine.Header(@"Cloud Anchors")] [UnityEngine.Serialization.FormerlySerializedAs(@"EnableCloudAnchors")] [UnityEngine.Tooltip(@"Chooses which Cloud Anchors mode will be used in ARCore Extensions session.")] public Google.XR.ARCoreExtensions.CloudAnchorMode CloudAnchorMode;
+        [System.Obsolete(@"This field has been replaced by ARCoreExtensionsConfig.CloudAnchorMode. See https://github.com/google-ar/arcore-unity-extensions/releases/tag/v1.20.0")] public bool EnableCloudAnchors { get; set; }
+        public ARCoreExtensionsConfig() {}
+        public void CopyFrom(Google.XR.ARCoreExtensions.ARCoreExtensionsConfig otherConfig);
+        public virtual bool Equals(object other);
+        public virtual int GetHashCode();
+    }
+
+    public class ARCoreRecordingConfig : UnityEngine.ScriptableObject
+    {
+        public bool AutoStopOnPause;
+        public string Mp4DatasetFilepath;
+        public ARCoreRecordingConfig() {}
+    }
+
+    public static class ARPlaybackManager
+    {
+        public static Google.XR.ARCoreExtensions.PlaybackStatus PlaybackStatus { get; }
+        public static Google.XR.ARCoreExtensions.PlaybackResult SetPlaybackDataset(string datasetFilepath);
+    }
+
+    public static class ARRecordingManager
+    {
+        public static Google.XR.ARCoreExtensions.RecordingStatus RecordingStatus { get; }
+        public static Google.XR.ARCoreExtensions.RecordingResult StartRecording(Google.XR.ARCoreExtensions.ARCoreRecordingConfig config);
+        public static Google.XR.ARCoreExtensions.RecordingResult StopRecording();
+    }
+
+    [System.Flags] public enum CameraConfigDepthSensorUsage
+    {
+        [UnityEngine.Tooltip(@"ARCore will not use the depth sensor, even if it is present. Available on all supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage DoNotUse = 2;
+        [UnityEngine.Tooltip(@"ARCore requires a depth sensor to be present and will use it. Not supported on all devices.")] public const Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage RequireAndUse = 1;
+        public int value__;
+    }
+
+    [System.Flags] public enum CameraConfigStereoCameraUsage
+    {
+        [UnityEngine.Tooltip(@"ARCore will not use the stereo camera, even if it is present. Available on all supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigStereoCameraUsage DoNotUse = 2;
+        [UnityEngine.Tooltip(@"ARCore requires a stereo camera to be present on the device. Not available on all ARCore supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigStereoCameraUsage RequireAndUse = 1;
+        public int value__;
+    }
+
+    [System.Flags] public enum CameraConfigTargetFps
+    {
+        [UnityEngine.Tooltip(@"Target 30fps camera capture frame rate. Available on all ARCore supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigTargetFps Target30FPS = 1;
+        [UnityEngine.Tooltip(@"Target 60fps camera capture frame rate on supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigTargetFps Target60FPS = 2;
+        public int value__;
+    }
+
+    public enum CloudAnchorMode
+    {
+        public const Google.XR.ARCoreExtensions.CloudAnchorMode Disabled = 0;
+        public const Google.XR.ARCoreExtensions.CloudAnchorMode Enabled = 1;
+        public int value__;
+    }
+
+    public enum CloudAnchorState
+    {
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorHostingDatasetProcessingFailed = 6;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorHostingServiceUnavailable = 10;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorInternal = 3;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorNotAuthorized = 4;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorResolvingCloudIdNotFound = 7;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorResolvingPackageTooNew = 9;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorResolvingPackageTooOld = 8;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState ErrorResourceExhausted = 5;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState None = 0;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState Success = 2;
+        public const Google.XR.ARCoreExtensions.CloudAnchorState TaskInProgress = 1;
+        public int value__;
+    }
+
+    [System.Obsolete(@"This enum has been renamed to CloudAnchorState. See details in release notes v1.16.0.")] public enum CloudReferenceState
+    {
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorHostingDatasetProcessingFailed = 6;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorHostingServiceUnavailable = 10;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorInternal = 3;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorNotAuthorized = 4;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorResolvingCloudIdNotFound = 7;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorResolvingPackageTooNew = 9;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorResolvingPackageTooOld = 8;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState ErrorResourceExhausted = 5;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState None = 0;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState Success = 2;
+        public const Google.XR.ARCoreExtensions.CloudReferenceState TaskInProgress = 1;
+        public int value__;
+    }
+
+    public enum FeatureMapQuality
+    {
+        public const Google.XR.ARCoreExtensions.FeatureMapQuality Good = 2;
+        public const Google.XR.ARCoreExtensions.FeatureMapQuality Insufficient = 0;
+        public const Google.XR.ARCoreExtensions.FeatureMapQuality Sufficient = 1;
+        public int value__;
+    }
+
+    public enum PlaybackResult
+    {
+        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorPlaybackFailed = 3;
+        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorSessionNotPaused = 1;
+        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorSessionUnsupported = 2;
+        public const Google.XR.ARCoreExtensions.PlaybackResult OK = 0;
+        public int value__;
+    }
+
+    public enum PlaybackStatus
+    {
+        public const Google.XR.ARCoreExtensions.PlaybackStatus FinishedSuccess = 3;
+        public const Google.XR.ARCoreExtensions.PlaybackStatus IOError = 2;
+        public const Google.XR.ARCoreExtensions.PlaybackStatus None = 0;
+        public const Google.XR.ARCoreExtensions.PlaybackStatus OK = 1;
+        public int value__;
+    }
+
+    public enum RecordingResult
+    {
+        public const Google.XR.ARCoreExtensions.RecordingResult ErrorIllegalState = 3;
+        public const Google.XR.ARCoreExtensions.RecordingResult ErrorInvalidArgument = 1;
+        public const Google.XR.ARCoreExtensions.RecordingResult ErrorRecordingFailed = 2;
+        public const Google.XR.ARCoreExtensions.RecordingResult OK = 0;
+        public int value__;
+    }
+
+    public enum RecordingStatus
+    {
+        public const Google.XR.ARCoreExtensions.RecordingStatus IOError = 2;
+        public const Google.XR.ARCoreExtensions.RecordingStatus None = 0;
+        public const Google.XR.ARCoreExtensions.RecordingStatus OK = 1;
+        public int value__;
+    }
+
+    public class VersionInfo
+    {
+        public static readonly string Version;
+        public VersionInfo() {}
+    }
+
+    [System.Runtime.CompilerServices.Extension] public static class XRCameraConfigurationExtensions
+    {
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage GetDepthSensorUsage(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
+        [System.Runtime.CompilerServices.Extension] public static UnityEngine.Vector2Int GetFPSRange(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.CameraConfigStereoCameraUsage GetStereoCameraUsage(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
+        [System.Runtime.CompilerServices.Extension] public static UnityEngine.Vector2Int GetTextureDimensions(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
+    }
+}
+
+namespace Google.XR.ARCoreExtensions.Internal
+{
+    public class AndroidPermissionsManager : UnityEngine.AndroidJavaProxy
+    {
+        public AndroidPermissionsManager() {}
+        public static bool IsPermissionGranted(string permissionName);
+        public virtual void OnActivityResult();
+        public virtual void OnPermissionDenied(string permissionName);
+        public virtual void OnPermissionGranted(string permissionName);
+        public static void RequestPermission(string permissionName, System.Action<bool> onRequestFinished);
+    }
+
+    public class DynamicHelpAttribute : UnityEngine.PropertyAttribute
+    {
+        public readonly string CheckingFunction;
+        public DynamicHelpAttribute(string checkingFunction) {}
+    }
+
+    public class EnumFlagsAttribute : UnityEngine.PropertyAttribute
+    {
+        public System.Type EnumType;
+        public EnumFlagsAttribute(System.Type type) {}
+    }
+
+    public class HelpAttribute : UnityEngine.PropertyAttribute
+    {
+        public readonly string HelpMessage;
+        public readonly Google.XR.ARCoreExtensions.Internal.HelpAttribute.HelpMessageType MessageType;
+        public HelpAttribute(string helpMessage, Google.XR.ARCoreExtensions.Internal.HelpAttribute.HelpMessageType messageType = 0) {}
+        public enum HelpMessageType
+        {
+            public const Google.XR.ARCoreExtensions.Internal.HelpAttribute.HelpMessageType Error = 3;
+            public const Google.XR.ARCoreExtensions.Internal.HelpAttribute.HelpMessageType Info = 1;
+            public const Google.XR.ARCoreExtensions.Internal.HelpAttribute.HelpMessageType None = 0;
+            public int value__;
+            public const Google.XR.ARCoreExtensions.Internal.HelpAttribute.HelpMessageType Warning = 2;
+        }
+    }
+
+    public class RuntimeConfig : UnityEngine.ScriptableObject
+    {
+        public static Google.XR.ARCoreExtensions.Internal.RuntimeConfig Instance;
+        public string IOSCloudServicesApiKey;
+        public RuntimeConfig() {}
+        public static void LoadInstance();
+        public void OnEnable();
+        public static void SetIOSApiKey(string apiKey);
+        public static void UploadInstance();
+    }
+}
