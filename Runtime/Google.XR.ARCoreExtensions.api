@@ -81,30 +81,42 @@ namespace Google.XR.ARCoreExtensions
         public virtual int GetHashCode();
     }
 
-    public class ARCoreRecordingConfig : UnityEngine.ScriptableObject
+    [UnityEngine.CreateAssetMenu(fileName = @"ARCoreRecordingConfig", menuName = @"ARCore Extensions/ARCore Recording Config", order = 3)] public class ARCoreRecordingConfig : UnityEngine.ScriptableObject
     {
         public bool AutoStopOnPause;
         public string Mp4DatasetFilepath;
+        [UnityEngine.HideInInspector] public System.Collections.Generic.List<Google.XR.ARCoreExtensions.Track> Tracks;
         public ARCoreRecordingConfig() {}
     }
 
-    public static class ARPlaybackManager
+    public class ARPlaybackManager : UnityEngine.MonoBehaviour
     {
-        public static Google.XR.ARCoreExtensions.PlaybackStatus PlaybackStatus { get; }
-        public static Google.XR.ARCoreExtensions.PlaybackResult SetPlaybackDataset(string datasetFilepath);
+        public Google.XR.ARCoreExtensions.PlaybackStatus PlaybackStatus { get; }
+        public ARPlaybackManager() {}
+        public System.Collections.Generic.List<Google.XR.ARCoreExtensions.TrackData> GetUpdatedTrackData(System.Guid trackId);
+        public Google.XR.ARCoreExtensions.PlaybackResult SetPlaybackDataset(string datasetFilepath);
     }
 
-    public static class ARRecordingManager
+    public class ARRecordingManager : UnityEngine.MonoBehaviour
     {
-        public static Google.XR.ARCoreExtensions.RecordingStatus RecordingStatus { get; }
-        public static Google.XR.ARCoreExtensions.RecordingResult StartRecording(Google.XR.ARCoreExtensions.ARCoreRecordingConfig config);
-        public static Google.XR.ARCoreExtensions.RecordingResult StopRecording();
+        public Google.XR.ARCoreExtensions.RecordingStatus RecordingStatus { get; }
+        public ARRecordingManager() {}
+        public Google.XR.ARCoreExtensions.RecordingResult RecordTrackData(System.Guid trackId, byte[] data);
+        public Google.XR.ARCoreExtensions.RecordingResult StartRecording(Google.XR.ARCoreExtensions.ARCoreRecordingConfig config);
+        public Google.XR.ARCoreExtensions.RecordingResult StopRecording();
     }
 
     [System.Flags] public enum CameraConfigDepthSensorUsage
     {
-        [UnityEngine.Tooltip(@"ARCore will not use the depth sensor, even if it is present. Available on all supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage DoNotUse = 2;
-        [UnityEngine.Tooltip(@"ARCore requires a depth sensor to be present and will use it. Not supported on all devices.")] public const Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage RequireAndUse = 1;
+        [UnityEngine.Tooltip(@"ARCore will not use the hardware depth sensor, such as a time-of-flight sensor (or ToF sensor), even if it is present. Available on all supported devices.")] public const Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage DoNotUse = 2;
+        [UnityEngine.Tooltip(@"ARCore requires a hardware depth sensor, such as a time-of-flight sensor (or ToF sensor), to be present and will use it. Not supported on all devices.")] public const Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage RequireAndUse = 1;
+        public int value__;
+    }
+
+    public enum CameraConfigFacingDirection
+    {
+        public const Google.XR.ARCoreExtensions.CameraConfigFacingDirection Back = 0;
+        public const Google.XR.ARCoreExtensions.CameraConfigFacingDirection Front = 1;
         public int value__;
     }
 
@@ -171,10 +183,11 @@ namespace Google.XR.ARCoreExtensions
 
     public enum PlaybackResult
     {
-        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorPlaybackFailed = 3;
-        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorSessionNotPaused = 1;
-        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorSessionUnsupported = 2;
+        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorPlaybackFailed = 4;
+        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorSessionNotPaused = 2;
+        public const Google.XR.ARCoreExtensions.PlaybackResult ErrorSessionUnsupported = 3;
         public const Google.XR.ARCoreExtensions.PlaybackResult OK = 0;
+        public const Google.XR.ARCoreExtensions.PlaybackResult SessionNotReady = 1;
         public int value__;
     }
 
@@ -189,10 +202,11 @@ namespace Google.XR.ARCoreExtensions
 
     public enum RecordingResult
     {
-        public const Google.XR.ARCoreExtensions.RecordingResult ErrorIllegalState = 3;
-        public const Google.XR.ARCoreExtensions.RecordingResult ErrorInvalidArgument = 1;
-        public const Google.XR.ARCoreExtensions.RecordingResult ErrorRecordingFailed = 2;
+        public const Google.XR.ARCoreExtensions.RecordingResult ErrorIllegalState = 4;
+        public const Google.XR.ARCoreExtensions.RecordingResult ErrorInvalidArgument = 2;
+        public const Google.XR.ARCoreExtensions.RecordingResult ErrorRecordingFailed = 3;
         public const Google.XR.ARCoreExtensions.RecordingResult OK = 0;
+        public const Google.XR.ARCoreExtensions.RecordingResult SessionNotReady = 1;
         public int value__;
     }
 
@@ -204,6 +218,19 @@ namespace Google.XR.ARCoreExtensions
         public int value__;
     }
 
+    public struct Track
+    {
+        public System.Guid Id;
+        public byte[] Metadata;
+        public string MimeType;
+    }
+
+    public struct TrackData
+    {
+        public byte[] Data;
+        public long FrameTimestamp;
+    }
+
     public class VersionInfo
     {
         public static readonly string Version;
@@ -213,14 +240,28 @@ namespace Google.XR.ARCoreExtensions
     [System.Runtime.CompilerServices.Extension] public static class XRCameraConfigurationExtensions
     {
         [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.CameraConfigDepthSensorUsage GetDepthSensorUsage(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
+        [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.CameraConfigFacingDirection GetFacingDirection(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
         [System.Runtime.CompilerServices.Extension] public static UnityEngine.Vector2Int GetFPSRange(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
         [System.Runtime.CompilerServices.Extension] public static Google.XR.ARCoreExtensions.CameraConfigStereoCameraUsage GetStereoCameraUsage(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
         [System.Runtime.CompilerServices.Extension] public static UnityEngine.Vector2Int GetTextureDimensions(UnityEngine.XR.ARSubsystems.XRCameraConfiguration cameraConfig);
+    }
+
+    [System.Runtime.CompilerServices.Extension] public static class XRCameraFrameExtensions
+    {
+        [System.Runtime.CompilerServices.Extension] public static UnityEngine.Matrix4x4 GetImageDisplayMatrix(UnityEngine.XR.ARSubsystems.XRCameraFrame frame);
     }
 }
 
 namespace Google.XR.ARCoreExtensions.Internal
 {
+    public enum AndroidAuthenticationStrategy
+    {
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"API Key")] public const Google.XR.ARCoreExtensions.Internal.AndroidAuthenticationStrategy ApiKey = 2;
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"Do Not Use")] public const Google.XR.ARCoreExtensions.Internal.AndroidAuthenticationStrategy DoNotUse = 0;
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"Keyless (recommended)")] public const Google.XR.ARCoreExtensions.Internal.AndroidAuthenticationStrategy Keyless = 1;
+        public int value__;
+    }
+
     public class AndroidPermissionsManager : UnityEngine.AndroidJavaProxy
     {
         public AndroidPermissionsManager() {}
@@ -229,6 +270,69 @@ namespace Google.XR.ARCoreExtensions.Internal
         public virtual void OnPermissionDenied(string permissionName);
         public virtual void OnPermissionGranted(string permissionName);
         public static void RequestPermission(string permissionName, System.Action<bool> onRequestFinished);
+    }
+
+    public class ARCoreExtensionsProjectSettings
+    {
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"Android Authentication Strategy")] [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetAndroidStrategyHelpInfo")] public Google.XR.ARCoreExtensions.Internal.AndroidAuthenticationStrategy AndroidAuthenticationStrategySetting;
+        [Google.XR.ARCoreExtensions.Internal.DisplayCondition(@"IsAndroidApiKeyFieldDisplayed")] [Google.XR.ARCoreExtensions.Internal.DisplayName(@"Android API Key")] public string AndroidCloudServicesApiKey;
+        [Google.XR.ARCoreExtensions.Internal.DisplayCondition(@"IsIosStrategyDisplayed")] [Google.XR.ARCoreExtensions.Internal.DisplayName(@"iOS Authentication Strategy")] [Google.XR.ARCoreExtensions.Internal.DynamicHelp(@"GetIosStrategyHelpInfo")] public Google.XR.ARCoreExtensions.Internal.IOSAuthenticationStrategy IOSAuthenticationStrategySetting;
+        [Google.XR.ARCoreExtensions.Internal.DisplayCondition(@"IsIosApiKeyFieldDisplayed")] [Google.XR.ARCoreExtensions.Internal.DisplayName(@"iOS API Key")] public string IOSCloudServicesApiKey;
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"iOS Support Enabled")] public bool IsIOSSupportEnabled;
+        [UnityEngine.HideInInspector] public string Version;
+        public static Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings Instance { get; }
+        public ARCoreExtensionsProjectSettings() {}
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetAndroidStrategyHelpInfo();
+        public Google.XR.ARCoreExtensions.Internal.HelpAttribute GetIosStrategyHelpInfo();
+        public bool IsAndroidApiKeyFieldDisplayed();
+        public bool IsIosApiKeyFieldDisplayed();
+        public bool IsIosStrategyDisplayed();
+        public void Load();
+        public void Save();
+    }
+
+    public class AuthenticationModule : Google.XR.ARCoreExtensions.Internal.DependentModuleBase
+    {
+        public AuthenticationModule() {}
+        public virtual string GetAndroidDependenciesSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual string GetAndroidManifestSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual string GetEnabledNotRequiredWarning(UnityEditor.BuildTarget buildTarget);
+        public virtual Google.XR.ARCoreExtensions.Internal.ModuleNecessity GetModuleNecessity(Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig);
+        public virtual string GetProguardSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual bool IsCompatible(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings, Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig, UnityEditor.BuildTarget buildTarget);
+        public virtual bool IsEnabled(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings, UnityEditor.BuildTarget buildTarget);
+    }
+
+    public class DependentModuleBase : Google.XR.ARCoreExtensions.Internal.IDependentModule
+    {
+        public DependentModuleBase() {}
+        public virtual string GetAndroidDependenciesSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual string GetAndroidManifestSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual string GetEnabledNotRequiredWarning(UnityEditor.BuildTarget buildTarget);
+        public virtual string GetIOSDependenciesTemplateFileName();
+        public virtual Google.XR.ARCoreExtensions.Internal.ModuleNecessity GetModuleNecessity(Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig);
+        public virtual string GetProguardSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public virtual string[] GetRuntimePermissions(Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig);
+        public virtual bool IsCompatible(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings, Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig, UnityEditor.BuildTarget buildTarget);
+        public virtual bool IsEnabled(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings, UnityEditor.BuildTarget buildTarget);
+    }
+
+    public class DependentModulesManager
+    {
+        public DependentModulesManager() {}
+        public static System.Collections.Generic.List<Google.XR.ARCoreExtensions.Internal.IDependentModule> GetModules();
+    }
+
+    public class DisplayConditionAttribute : System.Attribute
+    {
+        public readonly string CheckingFunction;
+        public DisplayConditionAttribute(string checkingFunction) {}
+    }
+
+    public class DisplayNameAttribute : System.Attribute
+    {
+        public readonly string DisplayString;
+        public DisplayNameAttribute(string displayString) {}
     }
 
     public class DynamicHelpAttribute : UnityEngine.PropertyAttribute
@@ -241,6 +345,12 @@ namespace Google.XR.ARCoreExtensions.Internal
     {
         public System.Type EnumType;
         public EnumFlagsAttribute(System.Type type) {}
+    }
+
+    public class EnumRangeAttribute : System.Attribute
+    {
+        public readonly string CheckingFunction;
+        public EnumRangeAttribute(string checkingFunction) {}
     }
 
     public class HelpAttribute : UnityEngine.PropertyAttribute
@@ -258,13 +368,44 @@ namespace Google.XR.ARCoreExtensions.Internal
         }
     }
 
+    public interface IDependentModule
+    {
+        public abstract string GetAndroidDependenciesSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public abstract string GetAndroidManifestSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public abstract string GetEnabledNotRequiredWarning(UnityEditor.BuildTarget buildTarget);
+        public abstract string GetIOSDependenciesTemplateFileName();
+        public abstract Google.XR.ARCoreExtensions.Internal.ModuleNecessity GetModuleNecessity(Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig);
+        public abstract string GetProguardSnippet(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings);
+        public abstract string[] GetRuntimePermissions(Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig);
+        public abstract bool IsCompatible(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings, Google.XR.ARCoreExtensions.ARCoreExtensionsConfig sessionConfig, UnityEditor.BuildTarget buildTarget);
+        public abstract bool IsEnabled(Google.XR.ARCoreExtensions.Internal.ARCoreExtensionsProjectSettings settings, UnityEditor.BuildTarget buildTarget);
+    }
+
+    public enum IOSAuthenticationStrategy
+    {
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"API Key")] public const Google.XR.ARCoreExtensions.Internal.IOSAuthenticationStrategy ApiKey = 2;
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"Authentication Token (recommended)")] public const Google.XR.ARCoreExtensions.Internal.IOSAuthenticationStrategy AuthenticationToken = 1;
+        [Google.XR.ARCoreExtensions.Internal.DisplayName(@"Do Not Use")] public const Google.XR.ARCoreExtensions.Internal.IOSAuthenticationStrategy DoNotUse = 0;
+        public int value__;
+    }
+
+    public enum ModuleNecessity
+    {
+        public const Google.XR.ARCoreExtensions.Internal.ModuleNecessity NotRequired = 0;
+        public const Google.XR.ARCoreExtensions.Internal.ModuleNecessity Optional = 1;
+        public const Google.XR.ARCoreExtensions.Internal.ModuleNecessity Required = 2;
+        public int value__;
+    }
+
     public class RuntimeConfig : UnityEngine.ScriptableObject
     {
         public static Google.XR.ARCoreExtensions.Internal.RuntimeConfig Instance;
         public string IOSCloudServicesApiKey;
+        public System.Collections.Generic.List<string> ModulesEnabled;
         public RuntimeConfig() {}
         public static void LoadInstance();
         public void OnEnable();
+        public static void SetEnabledModules(System.Collections.Generic.List<string> modulesEnabled);
         public static void SetIOSApiKey(string apiKey);
         public static void UploadInstance();
     }
