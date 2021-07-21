@@ -51,6 +51,7 @@ namespace Google.XR.ARCoreExtensions
         public void OnDestroy();
         public void OnDisable();
         public void OnEnable();
+        public void OnValidate();
         public void Start();
         public void Update();
         public delegate int OnChooseXRCameraConfigurationEvent(System.Collections.Generic.List<UnityEngine.XR.ARSubsystems.XRCameraConfiguration> supportedConfigurations);
